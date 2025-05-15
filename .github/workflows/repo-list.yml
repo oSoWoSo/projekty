@@ -24,6 +24,7 @@ jobs:
 
       - name: Get org repos
         run: |
+          if: always()
           ORGANIZATIONS="AM-manager OpenSourceWorldOrder oSoWoSo vb-linux voidbox-linux YourOperatingSystem"
           for org in ${ORGANIZATIONS}; do
             curl -X GET \
@@ -31,20 +32,22 @@ jobs:
             -H 'Authorization: Bearer ${TOKEN}' \
             -H 'Content-Type: application/json' \
             > $org_repos.json
-            cat $org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - [\(.name)](\(.description))"' >> org_repos.md
+            cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(.description // "No description")"' >> org_repos.md
           done
 
       - name: Generate Markdown file
+        if: always()
         run: |
           echo "# My Repositories" > README.md
           echo "" >> README.md
-          cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - [\(.name)](\(.description))"' >> README.md
+          cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(.description // "No description")"' >> README.md
           echo "" >> README.md
           echo "# Organization Repositories" >> README.md
           echo "" >> README.md
           cat org_repos.md >> README.md
 
       - name: Commit and push changes
+        if: always()
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"

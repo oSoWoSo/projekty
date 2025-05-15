@@ -31,14 +31,14 @@ jobs:
             -H 'Authorization: Bearer ${TOKEN}' \
             -H 'Content-Type: application/json' \
             > $org_repos.json
-            cat $org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - [\(.description)]"' >> org_repos.md
+            cat $org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - [\(.name)](\(.description))"' >> org_repos.md
           done
 
       - name: Generate Markdown file
         run: |
           echo "# My Repositories" > README.md
           echo "" >> README.md
-          cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(if .description then .description else "No description" end)"' >> README.md
+          cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - [\(.name)](\(.description))"' >> README.md
           echo "" >> README.md
           echo "# Organization Repositories" >> README.md
           echo "" >> README.md

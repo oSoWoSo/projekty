@@ -16,6 +16,7 @@ jobs:
 
       - name: Get user repos
         run: |
+          jq -V
           curl -X GET \
           https://api.github.com/users/${GITHUB_ACTOR}/repos \
           -H 'Authorization: Bearer ${TOKEN}' \

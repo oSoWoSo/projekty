@@ -31,7 +31,7 @@ jobs:
             -H 'Authorization: Bearer ${TOKEN}' \
             -H 'Content-Type: application/json' \
             > $org_repos.json
-            cat $org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(if .description then .description else "No description" end)"' >> org_repos.md
+            cat $org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - [\(.description)]"' >> org_repos.md
           done
 
       - name: Generate Markdown file

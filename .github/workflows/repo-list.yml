@@ -23,7 +23,6 @@ jobs:
           > user_repos.json
 
       - name: Get org repos
-        if: always()
         run: |
           ORGANIZATIONS="AM-manager OpenSourceWorldOrder oSoWoSo vb-linux voidbox-linux YourOperatingSystem"
           for org in ${ORGANIZATIONS}; do
@@ -32,7 +31,6 @@ jobs:
             -H 'Authorization: Bearer ${TOKEN}' \
             -H 'Content-Type: application/json' \
             > $org_repos.json
-            cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(.description // "No description")"' >> org_repos.md
           done
 
       - name: Generate Markdown file
@@ -40,9 +38,10 @@ jobs:
         run: |
           echo "# My Repositories" > README.md
           echo "" >> README.md
-          cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(.description // "No description")"' >> README.md
+          cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> README.md
           echo "" >> README.md
           echo "# Organization Repositories" >> README.md
+          cat org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> org_repos.md
           echo "" >> README.md
           cat org_repos.md >> README.md
 

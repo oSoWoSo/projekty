@@ -30,7 +30,8 @@ jobs:
             https://api.github.com/orgs/$org/repos \
             -H 'Authorization: Bearer ${TOKEN}' \
             -H 'Content-Type: application/json' \
-            > $org_repos.json
+            > org_repos.json
+            cat org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> org_repos.md
           done
 
       - name: Generate Markdown file
@@ -41,7 +42,6 @@ jobs:
           cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> README.md
           echo "" >> README.md
           echo "# Organization Repositories" >> README.md
-          cat org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> org_repos.md
           echo "" >> README.md
           cat org_repos.md >> README.md
 

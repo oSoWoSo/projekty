@@ -23,8 +23,8 @@ jobs:
           > user_repos.json
 
       - name: Get org repos
+        if: always()
         run: |
-          if: always()
           ORGANIZATIONS="AM-manager OpenSourceWorldOrder oSoWoSo vb-linux voidbox-linux YourOperatingSystem"
           for org in ${ORGANIZATIONS}; do
             curl -X GET \

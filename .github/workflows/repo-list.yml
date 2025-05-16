@@ -33,7 +33,7 @@ jobs:
             -H "Authorization: token $TOKEN" \
             -H 'Content-Type: application/json' \
             >> org_repos.json
-            cat org_repo.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(.description)"' >> org_repos.md
+            cat org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(.description)"' >> org_repos.md
           done
 
       - name: Generate Markdown file

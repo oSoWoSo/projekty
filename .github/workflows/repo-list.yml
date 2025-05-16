@@ -18,8 +18,8 @@ jobs:
         run: |
           rm -f user_repos.json
           curl -X GET \
-          https://api.github.com/users/${GITHUB_ACTOR}/repos \
-          -H 'Authorization: Bearer ${TOKEN}' \
+          https://api.github.com/users/zen0bit/repos \
+          -H "Authorization: Bearer ${{ TOKEN }}" \
           -H 'Content-Type: application/json' \
           > user_repos.json
 
@@ -30,7 +30,7 @@ jobs:
           for org in ${ORGANIZATIONS}; do
             curl -X GET \
             https://api.github.com/orgs/$org/repos \
-            -H 'Authorization: Bearer ${TOKEN}' \
+            -H "Authorization: Bearer ${{ TOKEN }}" \
             -H 'Content-Type: application/json' \
             >> org_repos.json
             #cat org_repo.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> org_repos.md

@@ -33,7 +33,7 @@ jobs:
             -H "Authorization: token $TOKEN" \
             -H 'Content-Type: application/json' \
             >> org_repos.json
-            #cat org_repo.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> org_repos.md
+            cat org_repo.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(.description)"' >> org_repos.md
           done
 
       - name: Generate Markdown file
@@ -41,11 +41,11 @@ jobs:
         run: |
           echo "# My Repositories" > README.md
           echo "" >> README.md
-          #cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> README.md
+          cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(.description)"' >> README.md
           echo "" >> README.md
           echo "# Organization Repositories" >> README.md
           echo "" >> README.md
-          #cat org_repos.md >> README.md
+          cat org_repos.md >> README.md
 
       - name: Commit and push changes
         if: always()

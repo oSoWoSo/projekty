@@ -19,21 +19,20 @@ jobs:
           rm -f user_repos.json
           curl -X GET \
           https://api.github.com/users/zen0bit/repos \
-          -H "Authorization: token $TOKEN" \
+          -H "Authorization: token ${TOKEN}" \
           -H 'Content-Type: application/json' \
           > user_repos.json
 
       - name: Get org repos
         run: |
-          rm -f org_repos.json
           ORGANIZATIONS="AM-manager OpenSourceWorldOrder oSoWoSo vb-linux voidbox-linux YourOperatingSystem"
           for org in ${ORGANIZATIONS}; do
             curl -X GET \
             https://api.github.com/orgs/$org/repos \
-            -H "Authorization: token $TOKEN" \
+            -H "Authorization: token ${TOKEN}" \
             -H 'Content-Type: application/json' \
-            >> org_repos.json
-            cat org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(.description)"' >> org_repos.md
+            > org_repos.json
+            cat org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> org_repos.md
           done
 
       - name: Generate Markdown file
@@ -41,7 +40,7 @@ jobs:
         run: |
           echo "# My Repositories" > README.md
           echo "" >> README.md
-          cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url)) - \(.description)"' >> README.md
+          cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> README.md
           echo "" >> README.md
           echo "# Organization Repositories" >> README.md
           echo "" >> README.md

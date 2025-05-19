@@ -1,0 +1,23 @@
+name: Sync Files
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  push:
+    paths:
+      - .github/sync.yml
+  workflow_dispatch:
+env:
+  GH_PAT: ${{ secrets.TOKEN }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@main
+
+      - name: Run File Sync
+        uses: BetaHuhn/repo-file-sync-action@v1
+        with:
+          GH_PAT: ${{ secrets.TOKEN }}

@@ -4,7 +4,7 @@ group:
       - source: vur/
         dest: ./
     repos: |
-      osowoso/vur@test
+      osowoso/vur
       
 #void-linux/void-packages@master:
 #BRANCH_PREFIX: void

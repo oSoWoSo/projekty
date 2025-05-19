@@ -1,0 +1,4 @@
+[submodule "VUR"]
+	path = VUR
+	url = git@github.com:oSoWoSo/VUR.git
+	branch = VUR

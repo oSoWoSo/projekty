@@ -46,6 +46,7 @@ group:
       dest: quickreport
     - source: dh/quicktui
       dest: quicktui
+    - .github/workflows/add-stars.yml
     repos: |
       osowoso/DistroHopper@all
 
@@ -288,6 +289,7 @@ group:
       dest: xubuntu.svg
     - source: distro-svg/zorin.svg
       dest: zorin.svg
+    - .github/workflows/add-stars.yml
     repos: |
       osowoso/distro-svg@main
 
@@ -302,6 +304,7 @@ group:
       dest: profile
     - source: github/workflow-templates
       dest: workflow-templates
+    - .github/workflows/add-stars.yml
     repos: |
       osowoso/.github@main
 
@@ -354,6 +357,7 @@ group:
       dest: gx
     - source: gumak/mg
       dest: mg
+    - .github/workflows/add-stars.yml
     repos: |
       osowoso/gumak@main
 
@@ -414,6 +418,7 @@ group:
       dest: result
     - source: quickemu/results
       dest: results
+    - .github/workflows/add-stars.yml
     repos: |
       osowoso/quickemu@master-patched
 
@@ -434,6 +439,7 @@ group:
       dest: screenshots
     - source: vbm/vbm.sh
       dest: vbm.sh
+    - .github/workflows/add-stars.yml
     repos: |
       osowoso/vbm@vbm
 
@@ -446,6 +452,7 @@ group:
       dest: README.md
     - source: void-helper/void-helper.sh
       dest: void-helper.sh
+    - .github/workflows/add-stars.yml
     repos: |
       osowoso/void-helper@master
 
@@ -464,5 +471,6 @@ group:
       dest: renameAll
     - source: wallpapers/src
       dest: src
+    - .github/workflows/add-stars.yml
     repos: |
       osowoso/Void-Wallpapers@main

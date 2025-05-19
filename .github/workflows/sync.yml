@@ -2,12 +2,9 @@ name: Sync Files
 on:
   schedule:
     - cron: '0 */6 * * *'
-  push:
-    branches: main
-    paths:
-      - .github/sync.yml
-      - .github/workflows/sync.yml
   workflow_dispatch:
+  repository_dispatch:
+    types: [trigger]
 env:
   GH_PAT: ${{ secrets.TOKEN }}
 

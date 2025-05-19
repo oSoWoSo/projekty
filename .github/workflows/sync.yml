@@ -1,4 +1,4 @@
-name: 🛰️ sync.yml
+name: 🛰️
 on:
   push:
     branches:

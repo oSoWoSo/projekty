@@ -1,0 +1,18 @@
+# Template file for 'openresolv'
+pkgname=openresolv
+version=3.16.2
+revision=1
+build_style=gnu-configure
+configure_args="--bindir=/usr/bin"
+hostmakedepends="runit"
+short_desc="Management framework for resolv.conf"
+maintainer="Andrea Brancaleoni <abc@pompel.me>"
+license="BSD-2-Clause"
+homepage="https://roy.marples.name/projects/openresolv"
+distfiles="https://github.com/NetworkConfiguration/openresolv/archive/refs/tags/v${version}.tar.gz"
+checksum=747ffde6d2b6507a984f54946a16d02eb03f12c981869550950f7a025bc3136b
+conf_files="/etc/resolvconf.conf"
+
+post_install() {
+	vlicense LICENSE
+}

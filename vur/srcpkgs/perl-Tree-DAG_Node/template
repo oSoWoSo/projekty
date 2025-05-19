@@ -1,0 +1,14 @@
+# Template build file for 'perl-Tree-DAG_Node'.
+pkgname=perl-Tree-DAG_Node
+version=1.34
+revision=1
+build_style=perl-module
+hostmakedepends="perl"
+makedepends="${hostmakedepends} perl-File-Slurper"
+depends="${makedepends}"
+short_desc="Tree::DAG_Node - An N-ary tree"
+maintainer="Leah Neukirchen <leah@vuxu.org>"
+homepage="https://metacpan.org/release/Tree-DAG_Node"
+license="Artistic-2.0"
+distfiles="${CPAN_SITE}/Tree/${pkgname/perl-/}-$version.tgz"
+checksum=26845b628872ec1af020ac2e839ae036c59c9e26aab887efb6c75a819c675cb1

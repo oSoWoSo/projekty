@@ -1,0 +1,240 @@
+# Template file for 'firefox-i18n'
+pkgname=firefox-i18n
+version=138.0
+revision=1
+build_style=meta
+short_desc="Firefox language packs"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="MPL-2.0"
+homepage="https://www.mozilla.org/firefox/"
+
+create_wrksrc=yes
+
+do_extract() {
+	:
+}
+
+_languages=(
+	'ach    "Acholi"'
+	'af     "Afrikaans"'
+	'an     "Aragonese"'
+	'ar     "Arabic"'
+	'ast    "Asturian"'
+	'az     "Azerbaijani"'
+	'be     "Belarusian"'
+	'bg     "Bulgarian"'
+	'bn     "Bengali"'
+	'br     "Breton"'
+	'bs     "Bosnian"'
+	'ca     "Catalan"'
+	'ca-valencia "Catalan (Valencian)"'
+	'cak    "Kaqchikel"'
+	'cs     "Czech"'
+	'cy     "Welsh"'
+	'da     "Danish"'
+	'de     "German"'
+	'dsb    "Lower Sorbian"'
+	'el     "Greek"'
+	'en-CA  "English (Canada)"'
+	'en-GB  "English (British)"'
+	'en-US  "English (US)"'
+	'eo     "Esperanto"'
+	'es-AR  "Spanish (Argentina)"'
+	'es-CL  "Spanish (Chile)"'
+	'es-ES  "Spanish (Spain)"'
+	'es-MX  "Spanish (Mexico)"'
+	'et     "Estonian"'
+	'eu     "Basque"'
+	'fa     "Persian"'
+	'ff     "Fulah"'
+	'fi     "Finnish"'
+	'fr     "French"'
+	'fy-NL  "Frisian"'
+	'ga-IE  "Irish"'
+	'gd     "Gaelic (Scotland)"'
+	'gl     "Galician"'
+	'gn     "Guarani"'
+	'gu-IN  "Gujarati (India)"'
+	'he     "Hebrew"'
+	'hi-IN  "Hindi (India)"'
+	'hr     "Croatian"'
+	'hsb    "Upper Sorbian"'
+	'hu     "Hungarian"'
+	'hy-AM  "Armenian"'
+	'ia     "Interlingua"'
+	'id     "Indonesian"'
+	'is     "Icelandic"'
+	'it     "Italian"'
+	'ja     "Japanese"'
+	'ka     "Georgian"'
+	'kab    "Kabyle"'
+	'kk     "Kazakh"'
+	'km     "Khmer"'
+	'kn     "Kannada"'
+	'ko     "Korean"'
+	'lij    "Ligurian"'
+	'lt     "Lithuanian"'
+	'lv     "Latvian"'
+	'mk     "Macedonian"'
+	'mr     "Marathi"'
+	'ms     "Malay"'
+	'my     "Burmese"'
+	'nb-NO  "Norwegian (Bokmål)"'
+	'ne-NP  "Nepali"'
+	'nl     "Dutch"'
+	'nn-NO  "Norwegian (Nynorsk)"'
+	'oc     "Occitan"'
+	'pa-IN  "Punjabi"'
+	'pl     "Polish"'
+	'pt-BR  "Portuguese (Brazilian)"'
+	'pt-PT  "Portuguese (Portugal)"'
+	'rm     "Romansh"'
+	'ro     "Romanian"'
+	'ru     "Russian"'
+	'si     "Sinhala"'
+	'sk     "Slovak"'
+	'skr    "Saraiki"'
+	'sl     "Slovenian"'
+	'son    "Songhai"'
+	'sq     "Albanian"'
+	'sr     "Serbian"'
+	'sv-SE  "Swedish"'
+	'ta     "Tamil"'
+	'te     "Telugu"'
+	'th     "Thai"'
+	'tl     "Tagalog"'
+	'tr     "Turkish"'
+	'trs    "Triqui"'
+	'uk     "Ukrainian"'
+	'ur     "Urdu"'
+	'uz     "Uzbek"'
+	'vi     "Vietnamese"'
+	'xh     "Xhosa"'
+	'zh-CN  "Chinese (Simplified)"'
+	'zh-TW  "Chinese (Traditional)"'
+)
+
+# XXX: Remove makedeps later, just for build ordering on the build servers
+makedepends="firefox"
+depends="firefox>=${version}"
+
+for _lang in "${_languages[@]}"; do
+	_locale=${_lang%% *}
+	_pkgname=firefox-i18n-${_locale}
+
+	depends+=" ${_pkgname}>=${version}"
+	distfiles+=" ${MOZILLA_SITE}/firefox/releases/${version}/linux-i686/xpi/${_locale}.xpi"
+
+	eval "${_pkgname}_package() {
+		_pkgtmpl $_lang
+	}"
+done
+
+_pkgtmpl() {
+	_lang="$1"
+	depends="firefox>=${version}"
+	conflicts="firefox-esr-i18n-${_lang}>=0"
+	short_desc="Firefox $2 language pack"
+	pkg_install() {
+		vinstall ${XBPS_SRCDISTDIR}/${sourcepkg}-${version}/${_lang}.xpi 644 \
+			usr/lib/firefox/browser/extensions langpack-${_lang}@firefox.mozilla.org.xpi
+	}
+}
+
+checksum="7e7bedc7ae6d6aee46ec92676c7eca6c1f4536fb56fd4c279c11c67e2980712d
+ 7156d6747e4a97016bc4abe5fc7c3f2333ceab3ed1e4a75177d14b688acda55f
+ 47f7237ed5fc0384ce1272237225e669832343cc2d552753a302098ca0dfae85
+ 76f6bee044e7e625fda1fb62acef8fc9d34b9e1db453c934d13f4198ea2ec7ce
+ 48512da7bb058ae4ce49084e8f7076c4db2af997542335ecf9323885055d6a1a
+ 2f495e9164f419d823b04d998c048ff6986457d59075a8679a34eb216ff9b8a3
+ f9d092d138fad610fb6a999625de2467dbe1239b76b98daa46b65af3d3d2388a
+ ecdfd9452e7ffd34d45afa2a409450c2907c2cec3c90ed35d2972b2c0f36f406
+ 785f2d7c33b42e0a0e846da08279a5ea0573586ec68fb6b6bf3207c2ec20df5c
+ 698101391f45f8e7e0cc2665bd0c05fd8e1d50705a74505160d9701b6c7af215
+ 043499900b4d538655dcc5a1335fcecc195eec48113a1c3b189c1c10e510793e
+ 666ee465101a149f453714cb3c4945d105e7ace3d5aaa5d018d6d77379c7e8ee
+ 843fb1a4cb06ce4e0d0cbfa2447a5f26be627f23234222b1e5c30f4a4d3eb805
+ ae7d0f5f462b8dd5a14e08efadf70e071e85530cf6cf7609e9398add43588eab
+ 1481358739a56bfbcdbd746ac9b88b9b994d7dead948e3e785b88ef0b13b8955
+ 7ce828fdc1a93cc479a4ab76a3c3af83e7d52eb9f1f61c2350163e13eedf4d00
+ a985176bf4defcd8d83cfa4ba635e6cbeb5609502e4ac71aa11cddba170fba81
+ b6dd8d4d7ac78bb0a6a211bcfe7a0554af020c97c7a155a49abc0eaf1d336a9a
+ 0e0c0d5dad6ed00a4227f36d8a30b9aa503e7e83a3f4f7b206da174ed4c893f0
+ 74d468b19d8a690a2dff9b628b557601dfe0118e05215b61178462d2c2ea617d
+ 990307f4b8b35d9776cd465d8aafe195c531357f46df7947b6c8befe9fc962c3
+ 413baa8fd91ce5e8610e5d1198c73655d33a97a1865fde7f3cd3aedc58b7803d
+ ead83497682d8af2a91d21c48b90ad9325bb3d756c13ac91cd5f6ad85e8f1638
+ 0528b36791625c5245928dcab64be1d472b9a022a4e30e81bafe371febf76c29
+ dea44107088fcafcb494bbd003cbd76067777722d5c70cdfc6559825d2920f37
+ 3723e0f7fb71116a5d4cf6527db9ef49389f43e418fbbc39b7cf2c05ca447ea9
+ 8775230de3bdc8f6e3279b867bb81acd7ab9313ad25efc8d3f9e3a57f5aaee73
+ 6127bbeec632de5b1298aca3ee95afb9bbd48f78b7a14bc27d6ab44c9b618740
+ 7feb1bd99851dd5339b40b3990afa61b3a7dbf5bec1c221742c965725db5cebd
+ 891b3c42ee9bc4b6542461d2bfd569e8fb19093b087dc6155a563c67fe20c857
+ bf60ab05e7aa68a1087a3f3a20d9ff948888e478ccd8354163d01b91485502cb
+ efa495964e86cf9e5f256d90af8b8e1ff16bd58ffb3212b70bdd46a85597ca1b
+ 77c16f1177dd5b26e36bc4845afb30ae050917875a809b589aa4d4fcfec1260a
+ bd69ae241bc5118329807d455e9f385985052799b757e24606eb16012ef0905f
+ 33cccc5fdf62cb746522bbeda86fa7a44d87033db8be494aa6654b1c4b609cb3
+ 8b4c24d15fffe60c0bedbf2783df3509ff473ca78ececbe04feff45b7d3128c9
+ bfbaf9d5edfee15f8f57aa15dda69bd04b0940a9c1ffb7a8b7715e692e64419d
+ 992ffd8080ee24106b56737d997f7de6781fd9b99b5939ddbe6f631a8af254df
+ d1ace668e6a2ceeafb844aab22cfb926d6ac7d68ed1d5f324a84c9d2f444fdf7
+ 5f7583221f2ff493c691d75cd2b17cd3dffd7eecc9b3a960f9ce8c2d3aa6665f
+ 4d426e55e283ac10a780286a3d7cf1e44a4273a4fc53b65ac3508817b06d1c13
+ b41fe84c28983fc5fffddbeef3220ae22e55f7e7d107274b280e6735d2169b57
+ 6f796cc2d6f1b9ee003aea0c9c2324b4a99666bdb03aa09a6560d53b81795e50
+ 0294b9ac77ada6f4dd3f95524d73c54f54dca8563381ea4936e9f333e9350693
+ 9365eb29778a4f8e3f98c6e5e93002000553a2c6c1cb4886e137dec35d56eb55
+ 11e382f6f41d89bf737689e129428636bef923cbe5c98c99a669c9c094424da8
+ 0088755472000ca8bb305b231b4e0019dfc9367cc78e1428c918990d9378088e
+ 2cf9e75df52b84326af4cf88c4906b5625701386227b86adb74c0b981290f417
+ 560f9c6368e38013ba0c2221b8a9c81f3d3ef8ac0cb447153847f494defd924f
+ 8b5618338ed639fb44713c9881018bbcf7dd9f546b5c4eee85c860f75255d834
+ a5bcf2b57fa1ad06ed40053670c0c599099f4dbe17fc378fb16159875d1fa87d
+ e1359502f1036a6c1a48c99f6c4ac2c1d0555a5ed91939218b4965e1f2d4ac89
+ 76820e2a0005fc7db55b271bab16ce9e622dd856860608dbf8bb48a72768cd31
+ b9d8b9ba71b11a1b7db2ceea539123e3631f9f4756d57981e406c24c4d472b03
+ 315aeed9f8fe83bd16552714b7a34cc3acf5fe1c5fea2e59ba9b95b6e981d21c
+ 45d543a11b6c21f8ba022695b4be7a23d28f3b90dd7ca4ac9ddb57936dfc1711
+ 52508bb53a6a79f9602df0ebb21a2937d81213eec4e0b65c7fc9cbe120125cf1
+ 06541652bce54ad0be869ec8b09e3dbc63fdce556e2398063477ff2957993ef9
+ 43b6e0260342684271c9c85abe6cfe72f84a59b27ac7b86963976b0c48437601
+ 2304e28e168e8d53df4f320973c2eaeee854fda73dd5d75d608c2a16eeca85af
+ 283b01e1804bf89347889bd50d2649a2b8c8f5cb46c9229ed78a6d36cf08da37
+ 7858a065908008f1cd23be958b97c5baf843e976bdc4c1de9ff6d7ace943d9dd
+ a58fa4d84252d1ce695c7c7cbbe9d9c555a1d1ab06e32eebe89689f49cabc264
+ 4e9f71947038661ee96729bbb38e4eff3b3603874abd111a429a49bbf84988d3
+ 446fc21d3cb29e9b88bc761282b14cb0af39126fd6e7965905d23d6c7a2ff1ee
+ 4f74efbce2c8ffc18f06b7ddcf2a3657f7c177749b69bdf69a743a11617e9d77
+ 37680433d255d003dc59e91623afc881f4651d61e8b13aa97ac77a082ea038a0
+ 01eb48125805e55c0a446124347c95b06de05be563db67505ebc98ba6288bf5b
+ a0cee1afbac0e7ae3c8c275ebffc364f108ec16ed752ec8d7a65b29fc0ebbd13
+ cf0e815c1cb34100bc188e726e50fe02a00d18097f7438bbbccee02f941527a7
+ 582901fb7ce121ed8b56e31eae64f132f31f54d5afcd2102ef4dea6de1c60587
+ 1ccb2effe34ffe5976cd449a5867c0ab314dcb20e6cb46b323a068e9ace7b0a3
+ 9a192e1ebc84be4118c3fb7ef3ee712bf5860ac63e28e7ec85bd2f4c01ce8a39
+ e960ee3917154958975f7099b3efd875d61c98c3ff6a86af9f03a67232ce7894
+ 1b9449e775cfd0559ed195f6d67953dfd725ab0f641d5ed7046c98db861a12c3
+ 66bfdbee946bd3253aadb9e8e94789d86ac4e076c99a8dfd5d7e1056cab58d25
+ 2ad9b07d5050f2f1c122111a842632f213356fbca8d4eb668da1f763c7a1dd81
+ 93aa0126647640e57673ca344f4e7b8f85b1a7bd78ec407788b8c2b31ee35354
+ 133923426b81d553ec6cc80ac144f0dfaecb2d49274fd6706e6191a19e3cb861
+ 3a2a1a0c89ef256f90e8a1bc152ab5ca52cde80cf30f775d356a7b9bcdadee5e
+ 0ca96474f9d60940b64c43863b6fa7ea3cb6d2c7153e921cdf7526bedaa9a632
+ cf7cf15b3fe8204ce63c068f4fef0112a507d01e09c518b06e2e4b0750c76436
+ fb33820b7f1289a6c2ab01aa774b6d2d5080efc5745ff062e6212001bb8535b2
+ bd42718f5047dbc3dd67e5b3f8e7d3051b449ab3bc2373bde99847b3ff2527ba
+ 0ca274d7e1e7aa9895bac9095167cc18b83514528deaf8bb96c060583db3c474
+ e54ea91726a9e5145f6453e2fb0fdd8eae4b4a2f33b7e0030918ad4e9e4b5e5a
+ ccc85c03ab28235fff6b4c2a7d3484439f69915f9b1abdb01e10920ded1e6dc8
+ 8e3497275b280dd5c4395be82bba1a4dfaf29407ab68d051ae98153fc4a7ac71
+ e818d423bdfa89f99e526ed68efce03344ad948b73ce46ccec63c2d218ead292
+ 0663bbaa116f095cf80da7f908bd14a8af8ddc2d23d15834281ade6255230f47
+ 0e7d9bdbcb4b81cada515c2880b58e3e791bb3e301add3773c02d2c625d13d54
+ bef4ca02eebdf30e20308b601f068178e87eae01fee577ec71435a4f565012d9
+ fd2433b3718358c08c831fd97de7017c28b6b92535662f5acf1bb4ba3a4b50b5
+ 01ec2abab32816b47846fda5f68ec90416768c45a361d44bd7637499587bcf70
+ 2dda0dbb2a536d1b2c4ae423436ae238f2958f2cb0836e623c45dadd49ed56d4
+ b36c1e4e4ada11dd5c1da547e143f0fcf42da747f4c871cac63ad3153326754c
+ e02fdc18891278100d9fd24e7f9acd6c42c0eee5d35b4d4b543637998cec5b1d"

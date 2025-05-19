@@ -21,3 +21,4 @@ jobs:
         uses: BetaHuhn/repo-file-sync-action@v1
         with:
           GH_PAT: ${{ secrets.TOKEN }}
+          BRANCH_PREFIX: ''

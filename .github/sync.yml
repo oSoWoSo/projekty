@@ -318,6 +318,8 @@ group:
       dest: README.md
     - source: gumak/TEMPLATE
       dest: TEMPLATE
+    - source: gumak/TEST
+      dest: TEST
     - source: gumak/_config.yml
       dest: _config.yml
     - source: gumak/gatuin

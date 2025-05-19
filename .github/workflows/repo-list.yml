@@ -1,0 +1,56 @@
+name: Generate Repo List
+
+on:
+  schedule:
+    - cron: 0 0 * * *
+  workflow_dispatch:
+  push:
+    paths: .github/workflows/repo-list.yml
+
+jobs:
+  generate-repo-list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get user repos
+        run: |
+          rm -f user_repos.json
+          curl -X GET \
+          https://api.github.com/users/zen0bit/repos \
+          -H "Authorization: token ${TOKEN}" \
+          -H 'Content-Type: application/json' \
+          > user_repos.json
+
+      - name: Get org repos
+        run: |
+          ORGANIZATIONS="AM-manager OpenSourceWorldOrder oSoWoSo vb-linux voidbox-linux YourOperatingSystem"
+          for org in ${ORGANIZATIONS}; do
+            curl -X GET \
+            https://api.github.com/orgs/$org/repos \
+            -H "Authorization: token ${TOKEN}" \
+            -H 'Content-Type: application/json' \
+            > org_repos.json
+            cat org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> org_repos.md
+          done
+
+      - name: Generate Markdown file
+        if: always()
+        run: |
+          echo "# My Repositories" > README.md
+          echo "" >> README.md
+          cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> README.md
+          echo "" >> README.md
+          echo "# Organization Repositories" >> README.md
+          echo "" >> README.md
+          cat org_repos.md >> README.md
+
+      - name: Commit and push changes
+        if: always()
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add -A
+          git commit -m "Update repository list"
+          git push origin main

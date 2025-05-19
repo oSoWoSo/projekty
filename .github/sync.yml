@@ -2,9 +2,9 @@ group:
   # Lint CI workflow
   - files:
       - source: vur/
-        dest: ./
+        dest: /
     repos: |
-      osowoso/vur
+      osowoso/vur@test
       
 #void-linux/void-packages@master:
 #BRANCH_PREFIX: void

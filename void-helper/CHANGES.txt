@@ -1,0 +1,47 @@
+----------------------------------------------
+Version 2.0.0
+----------------------------------------------
+
+THIS RELEASE IS BIG REWRITE
+
+- Nicer terminal user interface using gum
+- Script now ask all(almost) question prior to installing
+- Nano text editor moved from recommended to terminal text editors section
+- Added Helix editor to terminal text editors
+- Added Connman to network managers section
+- Added AM AppImage package manager
+- Rewriten xkb part
+- Added Enlightenment and Lumina to desktop environments section
+- Added FVWM3 and Hyprland to window managers section
+- Added Display Managers section (LightDM, Emptty, Slim, SDDM and GDM)
+- Added QEMU + Quckemu to virtualization section
+- Disable and enable any services after whole installation
+
+----------------------------------------------
+Version 1.0.0
+----------------------------------------------
+
+THIS RELEASE IS THE SUCCESSOR TO THE VOID-SH SCRIPT
+
+- Completely rewrited the script code
+- The script license was changed from MIT to the GPLv3
+- You can press enter to say no to questions
+- The script detects if sudo or doas is available
+- The "done" message at the end of every command was deleted
+
+- Added OnlyOffice to the office section
+- Added Docker, Kubernetes and LXC to the container and virtual machine section
+- Added Neovim to the terminal text editor section
+- GNOME Control Center changed to Budgie Control Center for Budgie
+- GNOME Terminal changed to GNOME Console for GNOME
+- Gedit changed to GNOME Text Editor for GNOME
+- Added dhcpcd and wpa_supplicant to the network management section
+- Added dhcpcd and IWD to the network management section
+- Added PipeWire/Wireplumber to the audio section
+- Added apulse to the ALSA installation so that applications that require PulseAudio can use ALSA
+- Added Dragon Player to the media player section
+- Added Epiphany browser to the web browser section
+- Added nano to recommended packages
+
+- You can now select a language for Xorg
+- Removed the support for Multilib (32-bit)

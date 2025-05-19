@@ -143,7 +143,7 @@ jobs:
             echo "      dest: $item" >> .github/sync.yml
           done
           echo '    repos: |' >> .github/sync.yml
-          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+          echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
 
       - name: push
         run: |

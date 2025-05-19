@@ -6,7 +6,8 @@ on:
       - master
   workflow_dispatch:
 jobs:
-  sync:
+  do-sync:
+    name: Sync
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -155,8 +156,8 @@ jobs:
           cat .github/sync.yml >> $GITHUB_STEP_SUMMARY
 
   trigger:
-    name: "trigger Sync"
-    needs: sync
+    name: trigger Sync
+    needs: do-sync
     runs-on: ubuntu-latest
     steps:
       - name: "trigger Sync"

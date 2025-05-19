@@ -36,6 +36,7 @@ jobs:
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
             echo "      dest: $item" >> .github/sync.yml
           done
+          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
           echo '    repos: |' >> .github/sync.yml
           # Here use sync or syncD variable
           echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
@@ -53,6 +54,7 @@ jobs:
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
             echo "      dest: $item" >> .github/sync.yml
           done
+          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
@@ -70,6 +72,7 @@ jobs:
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
             echo "      dest: $item" >> .github/sync.yml
           done
+          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
 
@@ -86,6 +89,7 @@ jobs:
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
             echo "      dest: $item" >> .github/sync.yml
           done
+          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
@@ -102,12 +106,12 @@ jobs:
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
             echo "      dest: $item" >> .github/sync.yml
           done
+          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
       - name: 🛰️ vbm
         run: |
-
           sync=vbm
           branch=vbm
           owner=osowoso
@@ -119,6 +123,7 @@ jobs:
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
             echo "      dest: $item" >> .github/sync.yml
           done
+          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
@@ -135,6 +140,7 @@ jobs:
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
             echo "      dest: $item" >> .github/sync.yml
           done
+          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
@@ -152,6 +158,7 @@ jobs:
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
             echo "      dest: $item" >> .github/sync.yml
           done
+          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
 

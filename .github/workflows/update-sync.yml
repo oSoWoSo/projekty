@@ -153,3 +153,14 @@ jobs:
           git commit -m "Create sync.yml" || echo "Nothing to commit"
           git push || echo "Nothing to push"
           cat .github/sync.yml >> $GITHUB_STEP_SUMMARY
+
+  trigger:
+    name: "trigger Sync"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "trigger Sync"
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ secrets.TOKEN }}
+          event-type: trigger

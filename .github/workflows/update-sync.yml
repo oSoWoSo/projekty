@@ -156,6 +156,7 @@ jobs:
 
   trigger:
     name: "trigger Sync"
+    needs: sync
     runs-on: ubuntu-latest
     steps:
       - name: "trigger Sync"

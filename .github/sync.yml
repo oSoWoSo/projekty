@@ -463,4 +463,4 @@ group:
     - source: wallpapers/src
       dest: src
     repos: |
-      osowoso/wallpapers@main
+      osowoso/Void-Wallpapers@main

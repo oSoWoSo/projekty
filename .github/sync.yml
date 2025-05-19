@@ -1,16 +1,18 @@
 group:
-  # Lint CI workflow
   - files:
-      - source: vur/
-        dest: /
+    - source: wallpapers/LICENSE
+      dest: LICENSE
+    - source: wallpapers/README.md
+      dest: README.md
+    - source: wallpapers/assets
+      dest: assets
+    - source: wallpapers/dist
+      dest: dist
+    - source: wallpapers/index.html
+      dest: index.html
+    - source: wallpapers/renameAll
+      dest: renameAll
+    - source: wallpapers/src
+      dest: src
     repos: |
-      osowoso/vur@test
-      
-#void-linux/void-packages@master:
-#BRANCH_PREFIX: void
-#Makrennel/hyprland-void@master:
-#BRANCH_PREFIX: hyprland
-#index-0/librewolf-void@master:
-#BRANCH_PREFIX: librewolf
-#mobinmob/abyss-packages@main:
-#BRANCH_PREFIX: abyss
+      osowoso/wallpapers@main

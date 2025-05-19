@@ -1,0 +1,44 @@
+source /usr/share/bash-completion/completions/xbps
+
+_vbm()
+{
+    local cur prev words cword
+    _init_completion || return
+    
+    local subcommands='sync
+	update
+	listrepos
+	repolist
+	addrepo
+	about
+	filelist
+	deps
+	reverse
+	search
+	searchfile
+	list
+	install
+	devinstall
+	listalternatives
+	setalternative
+	reconfigure
+	forceinstall
+	remove
+	removerecursive
+	cleanup
+	autoremove
+	help
+	helppager'
+    local all_pkgs='about|a|filelist|fl|deps|reverse|rv|search|s|install|i|devinstall|di'
+    local installed_pkgs='listalternatives|la|setalternative|sa|reconfigure|rc|forceinstall|fi|remove|rm|removerecursive|rc'
+
+    if [[ $prev == @($1) ]]; then
+        COMPREPLY=( $( compgen -W "$subcommands" -- "$cur") )
+    elif [[ $prev == @($all_pkgs) ]]; then
+        COMPREPLY=( $(compgen -W '$(_xbps_all_packages)' -- "$cur") )
+    elif [[ $prev == @($installed_pkgs) ]]; then
+        COMPREPLY=( $(compgen -W '$(_xbps_installed_packages)' -- "$cur") )
+    fi
+
+} &&
+complete -F _vbm vbm

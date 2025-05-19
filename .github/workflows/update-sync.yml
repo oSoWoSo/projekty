@@ -150,6 +150,6 @@ jobs:
           git config --global user.name web-flow
           git config --global user.email "noreply@github.com"
           git add .github/sync.yml
-          git commit -m "Create sync.yml"
-          git push
+          git commit -m "Create sync.yml" || echo "Nothing to commit"
+          git push || echo "Nothing to push"
           cat .github/sync.yml >> $GITHUB_STEP_SUMMARY

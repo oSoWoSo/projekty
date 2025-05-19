@@ -2,3 +2,7 @@
 	path = VUR
 	url = git@github.com:oSoWoSo/VUR.git
 	branch = VUR
+[submodule "build-docs"]
+	path = quickemu/build-docs
+	url = https://github.com/philclifford/quickemu-docs
+	branch = main

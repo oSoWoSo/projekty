@@ -3,11 +3,17 @@ on:
   push:
     branches:
       - main
-      - master
   workflow_dispatch:
+  #schedule:
+    #- cron: '0 */6 * * *'
+  repository_dispatch:
+    types: [trigger]
+env:
+  GH_PAT: ${{ secrets.TOKEN }}
+
 jobs:
-  do-sync:
-    name: Sync
+  create-sync:
+    name: create Sync
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -155,14 +161,10 @@ jobs:
           git push || echo "Nothing to push"
           cat .github/sync.yml >> $GITHUB_STEP_SUMMARY
 
-  trigger:
-    name: trigger Sync
-    needs: do-sync
-    runs-on: ubuntu-latest
-    steps:
-      - name: "trigger Sync"
-        uses: peter-evans/repository-dispatch@v3
+      - name: Run File Sync
+        uses: BetaHuhn/repo-file-sync-action@v1
         with:
-          repository: ${{ github.repository }}
-          token: ${{ secrets.TOKEN }}
-          event-type: trigger
+          GH_PAT: ${{ secrets.TOKEN }}
+          BRANCH_PREFIX: ''
+          SKIP_PR: true
+          ORIGINAL_MESSAGE: true

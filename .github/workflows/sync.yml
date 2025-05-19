@@ -24,3 +24,4 @@ jobs:
           GH_PAT: ${{ secrets.TOKEN }}
           BRANCH_PREFIX: ''
           SKIP_PR: true
+          ORIGINAL_MESSAGE: true

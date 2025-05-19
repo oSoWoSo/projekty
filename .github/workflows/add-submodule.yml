@@ -1,0 +1,33 @@
+name: "Add New Submodule"
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL"
+        type: string
+        required: true
+      path:
+        description: "Path"
+        type: string
+        required: true
+  repository_dispatch:
+    types: [ trigger-add-new-submodule ]
+
+jobs:
+  addSubmodule:
+    name: Add Submodule
+    runs-on: ubuntu-latest
+
+    steps:    
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN || secrets.GITHUB_TOKEN }}
+          submodules: recursive
+          
+      - name: Pull  
+        run: git pull
+        
+      - name: Add Submodule
+        run: git submodule add ${{ inputs.url }} ${{ inputs.path }}

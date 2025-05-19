@@ -1,5 +1,453 @@
 group:
   - files:
+    - source: dh/CNAME
+      dest: CNAME
+    - source: dh/CODE_OF_CONDUCT.md
+      dest: CODE_OF_CONDUCT.md
+    - source: dh/CONTRIBUTING.md
+      dest: CONTRIBUTING.md
+    - source: dh/LICENSE
+      dest: LICENSE
+    - source: dh/README.md
+      dest: README.md
+    - source: dh/SECURITY.md
+      dest: SECURITY.md
+    - source: dh/_config.yml
+      dest: _config.yml
+    - source: dh/build-docs
+      dest: build-docs
+    - source: dh/chunkcheck
+      dest: chunkcheck
+    - source: dh/debian
+      dest: debian
+    - source: dh/devshell.nix
+      dest: devshell.nix
+    - source: dh/dh
+      dest: dh
+    - source: dh/docs
+      dest: docs
+    - source: dh/flake.lock
+      dest: flake.lock
+    - source: dh/flake.nix
+      dest: flake.nix
+    - source: dh/package.nix
+      dest: package.nix
+    - source: dh/q
+      dest: q
+    - source: dh/qrun
+      dest: qrun
+    - source: dh/quickemu
+      dest: quickemu
+    - source: dh/quickfzf
+      dest: quickfzf
+    - source: dh/quickget
+      dest: quickget
+    - source: dh/quickreport
+      dest: quickreport
+    - source: dh/quicktui
+      dest: quicktui
+    repos: |
+      osowoso/DistroHopper@all
+
+  - files:
+    - source: distro-svg/README.md
+      dest: README.md
+    - source: distro-svg/absolute.svg
+      dest: absolute.svg
+    - source: distro-svg/academix.svg
+      dest: academix.svg
+    - source: distro-svg/agarimos.png
+      dest: agarimos.png
+    - source: distro-svg/aix.svg
+      dest: aix.svg
+    - source: distro-svg/alma.svg
+      dest: alma.svg
+    - source: distro-svg/alpine.svg
+      dest: alpine.svg
+    - source: distro-svg/android.svg
+      dest: android.svg
+    - source: distro-svg/antix.svg
+      dest: antix.svg
+    - source: distro-svg/arch.svg
+      dest: arch.svg
+    - source: distro-svg/archbang.svg
+      dest: archbang.svg
+    - source: distro-svg/archcraft.svg
+      dest: archcraft.svg
+    - source: distro-svg/archlabs.svg
+      dest: archlabs.svg
+    - source: distro-svg/archlinux.svg
+      dest: archlinux.svg
+    - source: distro-svg/archman.svg
+      dest: archman.svg
+    - source: distro-svg/arcolinux.svg
+      dest: arcolinux.svg
+    - source: distro-svg/artix.svg
+      dest: artix.svg
+    - source: distro-svg/aryalinux.svg
+      dest: aryalinux.svg
+    - source: distro-svg/backbox.svg
+      dest: backbox.svg
+    - source: distro-svg/batocera.svg
+      dest: batocera.svg
+    - source: distro-svg/blackarch.svg
+      dest: blackarch.svg
+    - source: distro-svg/bodhi-linux.svg
+      dest: bodhi-linux.svg
+    - source: distro-svg/bunsenlabs.svg
+      dest: bunsenlabs.svg
+    - source: distro-svg/cachyos.svg
+      dest: cachyos.svg
+    - source: distro-svg/centos-stream.svg
+      dest: centos-stream.svg
+    - source: distro-svg/cereus.svg
+      dest: cereus.svg
+    - source: distro-svg/condres.svg
+      dest: condres.svg
+    - source: distro-svg/debian.svg
+      dest: debian.svg
+    - source: distro-svg/deepin.svg
+      dest: deepin.svg
+    - source: distro-svg/devuan.svg
+      dest: devuan.svg
+    - source: distro-svg/dietpi.png
+      dest: dietpi.png
+    - source: distro-svg/dragonflybsd.svg
+      dest: dragonflybsd.svg
+    - source: distro-svg/elementary.svg
+      dest: elementary.svg
+    - source: distro-svg/endeavoros.svg
+      dest: endeavoros.svg
+    - source: distro-svg/endeavouros.svg
+      dest: endeavouros.svg
+    - source: distro-svg/fedora.svg
+      dest: fedora.svg
+    - source: distro-svg/freebsd.svg
+      dest: freebsd.svg
+    - source: distro-svg/freedos.svg
+      dest: freedos.svg
+    - source: distro-svg/gabeeos.svg
+      dest: gabeeos.svg
+    - source: distro-svg/garuda.svg
+      dest: garuda.svg
+    - source: distro-svg/gentoo.svg
+      dest: gentoo.svg
+    - source: distro-svg/ghostbsd.svg
+      dest: ghostbsd.svg
+    - source: distro-svg/haiku.png
+      dest: haiku.png
+    - source: distro-svg/hyperbola.svg
+      dest: hyperbola.svg
+    - source: distro-svg/kali.svg
+      dest: kali.svg
+    - source: distro-svg/kaos.svg
+      dest: kaos.svg
+    - source: distro-svg/kdeneon.svg
+      dest: kdeneon.svg
+    - source: distro-svg/knoppix.svg
+      dest: knoppix.svg
+    - source: distro-svg/kolibrios.svg
+      dest: kolibrios.svg
+    - source: distro-svg/korora.svg
+      dest: korora.svg
+    - source: distro-svg/kubuntu.svg
+      dest: kubuntu.svg
+    - source: distro-svg/linux-lite.svg
+      dest: linux-lite.svg
+    - source: distro-svg/linuxmint-cinnamon.svg
+      dest: linuxmint-cinnamon.svg
+    - source: distro-svg/linuxmint.svg
+      dest: linuxmint.svg
+    - source: distro-svg/lmde.svg
+      dest: lmde.svg
+    - source: distro-svg/lubuntu.svg
+      dest: lubuntu.svg
+    - source: distro-svg/lxle.svg
+      dest: lxle.svg
+    - source: distro-svg/mac.svg
+      dest: mac.svg
+    - source: distro-svg/macos.svg
+      dest: macos.svg
+    - source: distro-svg/madlinux.svg
+      dest: madlinux.svg
+    - source: distro-svg/mageia.png
+      dest: mageia.png
+    - source: distro-svg/manjaro.svg
+      dest: manjaro.svg
+    - source: distro-svg/midnightbsd.svg
+      dest: midnightbsd.svg
+    - source: distro-svg/ms-dos.svg
+      dest: ms-dos.svg
+    - source: distro-svg/mx.svg
+      dest: mx.svg
+    - source: distro-svg/mxlinux.svg
+      dest: mxlinux.svg
+    - source: distro-svg/netboot.svg
+      dest: netboot.svg
+    - source: distro-svg/netbsd.svg
+      dest: netbsd.svg
+    - source: distro-svg/netrunner.svg
+      dest: netrunner.svg
+    - source: distro-svg/nixos.svg
+      dest: nixos.svg
+    - source: distro-svg/openbsd.svg
+      dest: openbsd.svg
+    - source: distro-svg/openmandriva.svg
+      dest: openmandriva.svg
+    - source: distro-svg/opensuse.svg
+      dest: opensuse.svg
+    - source: distro-svg/oraclelinux.svg
+      dest: oraclelinux.svg
+    - source: distro-svg/parrot.svg
+      dest: parrot.svg
+    - source: distro-svg/pclinuxos.svg
+      dest: pclinuxos.svg
+    - source: distro-svg/pisilinux.svg
+      dest: pisilinux.svg
+    - source: distro-svg/pop-os.svg
+      dest: pop-os.svg
+    - source: distro-svg/popos.svg
+      dest: popos.svg
+    - source: distro-svg/puppy-linux.svg
+      dest: puppy-linux.svg
+    - source: distro-svg/pureos.svg
+      dest: pureos.svg
+    - source: distro-svg/raspbian.svg
+      dest: raspbian.svg
+    - source: distro-svg/reactos.svg
+      dest: reactos.svg
+    - source: distro-svg/rebornos.svg
+      dest: rebornos.svg
+    - source: distro-svg/regolith.svg
+      dest: regolith.svg
+    - source: distro-svg/rhel.svg
+      dest: rhel.svg
+    - source: distro-svg/rockylinux.svg
+      dest: rockylinux.svg
+    - source: distro-svg/rosa.svg
+      dest: rosa.svg
+    - source: distro-svg/salentos.svg
+      dest: salentos.svg
+    - source: distro-svg/slackware.svg
+      dest: slackware.svg
+    - source: distro-svg/slitaz.png
+      dest: slitaz.png
+    - source: distro-svg/smartos.svg
+      dest: smartos.svg
+    - source: distro-svg/solus.svg
+      dest: solus.svg
+    - source: distro-svg/steamos.svg
+      dest: steamos.svg
+    - source: distro-svg/tails.svg
+      dest: tails.svg
+    - source: distro-svg/truenas-core.svg
+      dest: truenas-core.svg
+    - source: distro-svg/truenas-scale.svg
+      dest: truenas-scale.svg
+    - source: distro-svg/trueos.svg
+      dest: trueos.svg
+    - source: distro-svg/tux.svg
+      dest: tux.svg
+    - source: distro-svg/tux10.svg
+      dest: tux10.svg
+    - source: distro-svg/tux11.svg
+      dest: tux11.svg
+    - source: distro-svg/tux9.svg
+      dest: tux9.svg
+    - source: distro-svg/ubuntu-budgie.svg
+      dest: ubuntu-budgie.svg
+    - source: distro-svg/ubuntu-kylin.svg
+      dest: ubuntu-kylin.svg
+    - source: distro-svg/ubuntu-mate.svg
+      dest: ubuntu-mate.svg
+    - source: distro-svg/ubuntu-studio.svg
+      dest: ubuntu-studio.svg
+    - source: distro-svg/ubuntu-unity.png
+      dest: ubuntu-unity.png
+    - source: distro-svg/ubuntu.svg
+      dest: ubuntu.svg
+    - source: distro-svg/ubuntukylin.svg
+      dest: ubuntukylin.svg
+    - source: distro-svg/ubuntustudio.svg
+      dest: ubuntustudio.svg
+    - source: distro-svg/ultimate-edition.svg
+      dest: ultimate-edition.svg
+    - source: distro-svg/void.svg
+      dest: void.svg
+    - source: distro-svg/voidpup.png
+      dest: voidpup.png
+    - source: distro-svg/voyager.svg
+      dest: voyager.svg
+    - source: distro-svg/vxlinux.svg
+      dest: vxlinux.svg
+    - source: distro-svg/windows.svg
+      dest: windows.svg
+    - source: distro-svg/xerolinux.png
+      dest: xerolinux.png
+    - source: distro-svg/xubuntu.svg
+      dest: xubuntu.svg
+    - source: distro-svg/zorin.svg
+      dest: zorin.svg
+    repos: |
+      osowoso/distro-svg@main
+
+  - files:
+    - source: github/CNAME
+      dest: CNAME
+    - source: github/README.md
+      dest: README.md
+    - source: github/_config.yml
+      dest: _config.yml
+    - source: github/profile
+      dest: profile
+    - source: github/workflow-templates
+      dest: workflow-templates
+    repos: |
+      osowoso/.github@main
+
+  - files:
+    - source: gumak/CNAME
+      dest: CNAME
+    - source: gumak/CORE
+      dest: CORE
+    - source: gumak/DOCS
+      dest: DOCS
+    - source: gumak/LICENSE
+      dest: LICENSE
+    - source: gumak/README.md
+      dest: README.md
+    - source: gumak/TEMPLATE
+      dest: TEMPLATE
+    - source: gumak/_config.yml
+      dest: _config.yml
+    - source: gumak/gatuin
+      dest: gatuin
+    - source: gumak/gchezmoi
+      dest: gchezmoi
+    - source: gumak/gchmod
+      dest: gchmod
+    - source: gumak/gcolor
+      dest: gcolor
+    - source: gumak/gdrop
+      dest: gdrop
+    - source: gumak/gman
+      dest: gman
+    - source: gumak/gme
+      dest: gme
+    - source: gumak/gmkdir
+      dest: gmkdir
+    - source: gumak/grm
+      dest: grm
+    - source: gumak/gum-base
+      dest: gum-base
+    - source: gumak/gumak
+      dest: gumak
+    - source: gumak/gvpm
+      dest: gvpm
+    - source: gumak/gvpsm
+      dest: gvpsm
+    - source: gumak/gvsv
+      dest: gvsv
+    - source: gumak/gx
+      dest: gx
+    - source: gumak/mg
+      dest: mg
+    repos: |
+      osowoso/gumak@main
+
+  - files:
+    - source: quickemu/CODE_OF_CONDUCT.md
+      dest: CODE_OF_CONDUCT.md
+    - source: quickemu/CONTRIBUTING.md
+      dest: CONTRIBUTING.md
+    - source: quickemu/ERRORS.md
+      dest: ERRORS.md
+    - source: quickemu/ISOs.list
+      dest: ISOs.list
+    - source: quickemu/LICENSE
+      dest: LICENSE
+    - source: quickemu/README.md
+      dest: README.md
+    - source: quickemu/README.md.bak
+      dest: README.md.bak
+    - source: quickemu/READMEsmall.md
+      dest: READMEsmall.md
+    - source: quickemu/SECURITY.md
+      dest: SECURITY.md
+    - source: quickemu/TODO
+      dest: TODO
+    - source: quickemu/action
+      dest: action
+    - source: quickemu/actions
+      dest: actions
+    - source: quickemu/build-docs
+      dest: build-docs
+    - source: quickemu/chunkcheck
+      dest: chunkcheck
+    - source: quickemu/debian
+      dest: debian
+    - source: quickemu/devshell.nix
+      dest: devshell.nix
+    - source: quickemu/docs
+      dest: docs
+    - source: quickemu/flake.lock
+      dest: flake.lock
+    - source: quickemu/flake.nix
+      dest: flake.nix
+    - source: quickemu/locale
+      dest: locale
+    - source: quickemu/package.nix
+      dest: package.nix
+    - source: quickemu/public
+      dest: public
+    - source: quickemu/qget
+      dest: qget
+    - source: quickemu/quickemu
+      dest: quickemu
+    - source: quickemu/quickget
+      dest: quickget
+    - source: quickemu/quickreport
+      dest: quickreport
+    - source: quickemu/result
+      dest: result
+    - source: quickemu/results
+      dest: results
+    repos: |
+      osowoso/quickemu@master-patched
+
+  - files:
+    - source: vbm/LICENSE
+      dest: LICENSE
+    - source: vbm/Makefile
+      dest: Makefile
+    - source: vbm/README.md
+      dest: README.md
+    - source: vbm/bash-completion
+      dest: bash-completion
+    - source: vbm/fish-functions
+      dest: fish-functions
+    - source: vbm/foo.png
+      dest: foo.png
+    - source: vbm/screenshots
+      dest: screenshots
+    - source: vbm/vbm.sh
+      dest: vbm.sh
+    repos: |
+      osowoso/vbm@vbm
+
+  - files:
+    - source: void-helper/CHANGES.txt
+      dest: CHANGES.txt
+    - source: void-helper/LICENSE
+      dest: LICENSE
+    - source: void-helper/README.md
+      dest: README.md
+    - source: void-helper/void-helper.sh
+      dest: void-helper.sh
+    repos: |
+      osowoso/void-helper@master
+
+  - files:
     - source: wallpapers/LICENSE
       dest: LICENSE
     - source: wallpapers/README.md

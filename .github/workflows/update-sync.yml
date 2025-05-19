@@ -11,19 +11,156 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@main
-      - name: prepare
+
+      - name: DistroHopper
         run: |
-          #VOID=$(curl https://api.github.com/repos/void-linux/void-packages/contents | jq -r '.[] | "\(.name) (\(.type))"' | cut -d' ' -f1)
-          TEST=$(ls TEST/)
-          echo "$TEST"
+          # Fill this variables
+          sync=dh
+          # If Destination repo name differ from what we have
+          syncD=DistroHopper
+          branch=all
+          # Rest is same for most jobs. just copy into new one
+          owner=osowoso
+          SYNC=$(ls ${sync}/)
+          echo "$SYNC"
           echo 'group:' > .github/sync.yml
-          echo '  - files:'
-          
-          for item in $VOID; do
-            echo "    - $item" >> .github/sync.yml
-            #echo "  - source: ../$item" >> .github/sync.yml
-            #echo "    dest: ./$item" >> .github/sync.yml
+          echo '  - files:' >> .github/sync.yml
+          for item in $SYNC; do
+            echo "    - source: ${sync}/${item}" >> .github/sync.yml
+            echo "      dest: $item" >> .github/sync.yml
           done
+          echo '    repos: |' >> .github/sync.yml
+          # Here use sync or syncD variable
+          echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
+
+      - name: Distro SVG
+        run: |
+          # Fill this two variables
+          sync=distro-svg
+          branch=main
+          # Rest is same for most jobs. just copy into new one
+          owner=osowoso
+          SYNC=$(ls ${sync}/)
+          echo "$SYNC"
+          echo 'group:' > .github/sync.yml
+          echo '  - files:' >> .github/sync.yml
+          for item in $SYNC; do
+            echo "    - source: ${sync}/${item}" >> .github/sync.yml
+            echo "      dest: $item" >> .github/sync.yml
+          done
+          echo '    repos: |' >> .github/sync.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+
+      - name: oSoWoSo Site and GitHub profile
+        run: |
+          # Fill this two variables
+          sync=github
+          # Repo name differ (We can't use real .github name)
+          syncD=.github
+          branch=main
+          # Rest is same for most jobs. just copy into new one
+          owner=osowoso
+          SYNC=$(ls ${sync}/)
+          echo "$SYNC"
+          echo 'group:' > .github/sync.yml
+          echo '  - files:' >> .github/sync.yml
+          for item in $SYNC; do
+            echo "    - source: ${sync}/${item}" >> .github/sync.yml
+            echo "      dest: $item" >> .github/sync.yml
+          done
+          echo '    repos: |' >> .github/sync.yml
+          echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
+
+      - name: Gumak
+        run: |
+          # Fill this two variables
+          sync=gumak
+          branch=main
+          # Rest is same for most jobs. just copy into new one
+          owner=osowoso
+          SYNC=$(ls ${sync}/)
+          echo "$SYNC"
+          echo 'group:' > .github/sync.yml
+          echo '  - files:' >> .github/sync.yml
+          for item in $SYNC; do
+            echo "    - source: ${sync}/${item}" >> .github/sync.yml
+            echo "      dest: $item" >> .github/sync.yml
+          done
+          echo '    repos: |' >> .github/sync.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+
+      - name: Quickemu
+        run: |
+          # Fill this two variables
+          sync=quickemu
+          branch=master-patched
+          # Rest is same for most jobs. just copy into new one
+          owner=osowoso
+          SYNC=$(ls ${sync}/)
+          echo "$SYNC"
+          echo 'group:' > .github/sync.yml
+          echo '  - files:' >> .github/sync.yml
+          for item in $SYNC; do
+            echo "    - source: ${sync}/${item}" >> .github/sync.yml
+            echo "      dest: $item" >> .github/sync.yml
+          done
+          echo '    repos: |' >> .github/sync.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+
+      - name: vbm
+        run: |
+          # Fill this two variables
+          sync=vbm
+          branch=vbm
+          # Rest is same for most jobs. just copy into new one
+          owner=osowoso
+          SYNC=$(ls ${sync}/)
+          echo "$SYNC"
+          echo 'group:' > .github/sync.yml
+          echo '  - files:' >> .github/sync.yml
+          for item in $SYNC; do
+            echo "    - source: ${sync}/${item}" >> .github/sync.yml
+            echo "      dest: $item" >> .github/sync.yml
+          done
+          echo '    repos: |' >> .github/sync.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+
+      - name: Void Helper (post-installation script)
+        run: |
+          # Fill this two variables
+          sync=void-helper
+          branch=
+          # Rest is same for most jobs. just copy into new one
+          owner=osowoso
+          SYNC=$(ls ${sync}/)
+          echo "$SYNC"
+          echo 'group:' > .github/sync.yml
+          echo '  - files:' >> .github/sync.yml
+          for item in $SYNC; do
+            echo "    - source: ${sync}/${item}" >> .github/sync.yml
+            echo "      dest: $item" >> .github/sync.yml
+          done
+          echo '    repos: |' >> .github/sync.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+
+      - name: Void Wallpapers
+        run: |
+          # Fill this two variables
+          sync=wallpapers
+          syncD=Void-Wallpapers
+          branch=main
+          # Rest is same for most jobs. just copy into new one
+          owner=osowoso
+          SYNC=$(ls ${sync}/)
+          echo "$SYNC"
+          echo 'group:' > .github/sync.yml
+          echo '  - files:' >> .github/sync.yml
+          for item in $SYNC; do
+            echo "    - source: ${sync}/${item}" >> .github/sync.yml
+            echo "      dest: $item" >> .github/sync.yml
+          done
+          echo '    repos: |' >> .github/sync.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
       - name: push
         run: |

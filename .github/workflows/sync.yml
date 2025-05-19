@@ -1,4 +1,4 @@
-name: Create sync.yml
+name: 🛰️ sync.yml
 on:
   push:
     branches:
@@ -16,7 +16,7 @@ env:
 
 jobs:
   create-sync:
-    name: create Sync
+    name: 🛰️ sync
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -164,7 +164,7 @@ jobs:
           git push || echo "Nothing to push"
           cat .github/sync.yml >> $GITHUB_STEP_SUMMARY
 
-      - name: Run File Sync
+      - name: 🛰️ Sync
         uses: BetaHuhn/repo-file-sync-action@v1
         with:
           GH_PAT: ${{ secrets.TOKEN }}

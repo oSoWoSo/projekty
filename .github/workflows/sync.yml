@@ -22,7 +22,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@main
 
-      - name: DistroHopper
+      - name: 🛰️ DistroHopper
         run: |
           sync=dh
           syncD=DistroHopper
@@ -40,7 +40,7 @@ jobs:
           # Here use sync or syncD variable
           echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
 
-      - name: Distro SVG
+      - name: 🛰️ Distro SVG
         run: |
           sync=distro-svg
           branch=main
@@ -56,7 +56,7 @@ jobs:
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
-      - name: oSoWoSo Site and GitHub profile
+      - name: 🛰️ oSoWoSo Site and GitHub profile
         run: |
           sync=github
           syncD=.github
@@ -73,7 +73,7 @@ jobs:
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
 
-      - name: Gumak
+      - name: 🛰️ Gumak
         run: |
           sync=gumak
           branch=main
@@ -89,7 +89,7 @@ jobs:
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
-      - name: Quickemu
+      - name: 🛰️ Quickemu
         run: |
           sync=quickemu
           branch=master-patched
@@ -105,7 +105,7 @@ jobs:
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
-      - name: vbm
+      - name: 🛰️ vbm
         run: |
 
           sync=vbm
@@ -122,7 +122,7 @@ jobs:
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
-      - name: Void Helper (post-installation script)
+      - name: 🛰️ Void Helper (post-installation script)
         run: |
           sync=void-helper
           branch=master
@@ -138,7 +138,7 @@ jobs:
           echo '    repos: |' >> .github/sync.yml
           echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
 
-      - name: Void Wallpapers
+      - name: 🛰️ Void Wallpapers
         run: |
           sync=wallpapers
           syncD=Void-Wallpapers
@@ -160,8 +160,8 @@ jobs:
           git config --global user.name web-flow
           git config --global user.email "noreply@github.com"
           git add .github/sync.yml
-          git commit -m "Create sync.yml" || echo "Nothing to commit"
-          git push || echo "Nothing to push"
+          git commit -m "🛰️ sync" || echo "🛰️ nothing to commit"
+          git push || echo "🛰️ nothing to push"
           cat .github/sync.yml >> $GITHUB_STEP_SUMMARY
 
       - name: 🛰️ Sync

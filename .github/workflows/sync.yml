@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - .github/sync.yml
+      - .github/workflows/sync.yml
   workflow_dispatch:
 env:
   GH_PAT: ${{ secrets.TOKEN }}

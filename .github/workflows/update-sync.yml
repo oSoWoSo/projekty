@@ -8,6 +8,9 @@ on:
     #- cron: '0 */6 * * *'
   repository_dispatch:
     types: [trigger]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 env:
   GH_PAT: ${{ secrets.TOKEN }}
 

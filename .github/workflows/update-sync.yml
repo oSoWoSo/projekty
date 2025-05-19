@@ -14,12 +14,9 @@ jobs:
 
       - name: DistroHopper
         run: |
-          # Fill this variables
           sync=dh
-          # If Destination repo name differ from what we have
           syncD=DistroHopper
           branch=all
-          # Rest is same for most jobs. just copy into new one
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
@@ -35,14 +32,12 @@ jobs:
 
       - name: Distro SVG
         run: |
-          # Fill this two variables
           sync=distro-svg
           branch=main
-          # Rest is same for most jobs. just copy into new one
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo 'group:' > .github/sync.yml
+          echo '' >> .github/sync.yml
           echo '  - files:' >> .github/sync.yml
           for item in $SYNC; do
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
@@ -53,16 +48,13 @@ jobs:
 
       - name: oSoWoSo Site and GitHub profile
         run: |
-          # Fill this two variables
           sync=github
-          # Repo name differ (We can't use real .github name)
           syncD=.github
           branch=main
-          # Rest is same for most jobs. just copy into new one
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo 'group:' > .github/sync.yml
+          echo '' >> .github/sync.yml
           echo '  - files:' >> .github/sync.yml
           for item in $SYNC; do
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
@@ -73,14 +65,12 @@ jobs:
 
       - name: Gumak
         run: |
-          # Fill this two variables
           sync=gumak
           branch=main
-          # Rest is same for most jobs. just copy into new one
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo 'group:' > .github/sync.yml
+          echo '' >> .github/sync.yml
           echo '  - files:' >> .github/sync.yml
           for item in $SYNC; do
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
@@ -91,14 +81,12 @@ jobs:
 
       - name: Quickemu
         run: |
-          # Fill this two variables
           sync=quickemu
           branch=master-patched
-          # Rest is same for most jobs. just copy into new one
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo 'group:' > .github/sync.yml
+          echo '' >> .github/sync.yml
           echo '  - files:' >> .github/sync.yml
           for item in $SYNC; do
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
@@ -109,14 +97,13 @@ jobs:
 
       - name: vbm
         run: |
-          # Fill this two variables
+
           sync=vbm
           branch=vbm
-          # Rest is same for most jobs. just copy into new one
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo 'group:' > .github/sync.yml
+          echo '' >> .github/sync.yml
           echo '  - files:' >> .github/sync.yml
           for item in $SYNC; do
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
@@ -127,14 +114,12 @@ jobs:
 
       - name: Void Helper (post-installation script)
         run: |
-          # Fill this two variables
           sync=void-helper
-          branch=
-          # Rest is same for most jobs. just copy into new one
+          branch=master
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo 'group:' > .github/sync.yml
+          echo '' >> .github/sync.yml
           echo '  - files:' >> .github/sync.yml
           for item in $SYNC; do
             echo "    - source: ${sync}/${item}" >> .github/sync.yml
@@ -145,15 +130,13 @@ jobs:
 
       - name: Void Wallpapers
         run: |
-          # Fill this two variables
           sync=wallpapers
           syncD=Void-Wallpapers
           branch=main
-          # Rest is same for most jobs. just copy into new one
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo 'group:' > .github/sync.yml
+          echo '' >> .github/sync.yml
           echo '  - files:' >> .github/sync.yml
           for item in $SYNC; do
             echo "    - source: ${sync}/${item}" >> .github/sync.yml

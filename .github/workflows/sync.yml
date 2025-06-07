@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - ./**/**
   workflow_dispatch:
   #schedule:
     #- cron: '0 */6 * * *'
@@ -15,9 +17,11 @@ env:
   GH_PAT: ${{ secrets.TOKEN }}
 
 jobs:
-  create-sync:
-    name: 🛰️ sync
+  prepare:
+    name: 🛰️ prepare
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.generate-matrix.outputs.matrix }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@main
@@ -30,16 +34,15 @@ jobs:
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo 'group:' > .github/sync.yml
-          echo '  - files:' >> .github/sync.yml
+          echo 'group:' > .github/sync-dh.yml
+          echo '  - files:' >> .github/sync-dh.yml
           for item in $SYNC; do
-            echo "    - source: ${sync}/${item}" >> .github/sync.yml
-            echo "      dest: $item" >> .github/sync.yml
+            echo "    - source: ${sync}/${item}" >> .github/sync-dh.yml
+            echo "      dest: $item" >> .github/sync-dh.yml
           done
-          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
-          echo '    repos: |' >> .github/sync.yml
+          echo '    repos: |' >> .github/sync-dh.yml
           # Here use sync or syncD variable
-          echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
+          echo "      ${owner}/${syncD}@${branch}" >> .github/sync-dh.yml
 
       - name: 🛰️ Distro SVG
         run: |
@@ -48,15 +51,14 @@ jobs:
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo '' >> .github/sync.yml
-          echo '  - files:' >> .github/sync.yml
+          echo 'group:' > .github/sync-distro-svg.yml
+          echo '  - files:' >> .github/sync-distro-svg.yml
           for item in $SYNC; do
-            echo "    - source: ${sync}/${item}" >> .github/sync.yml
-            echo "      dest: $item" >> .github/sync.yml
+            echo "    - source: ${sync}/${item}" >> .github/sync-distro-svg.yml
+            echo "      dest: $item" >> .github/sync-distro-svg.yml
           done
-          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
-          echo '    repos: |' >> .github/sync.yml
-          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+          echo '    repos: |' >> .github/sync-distro-svg.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync-distro-svg.yml
 
       - name: 🛰️ oSoWoSo Site and GitHub profile
         run: |
@@ -66,15 +68,14 @@ jobs:
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo '' >> .github/sync.yml
-          echo '  - files:' >> .github/sync.yml
+          echo 'group:' > .github/sync-github.yml
+          echo '  - files:' >> .github/sync-github.yml
           for item in $SYNC; do
-            echo "    - source: ${sync}/${item}" >> .github/sync.yml
-            echo "      dest: $item" >> .github/sync.yml
+            echo "    - source: ${sync}/${item}" >> .github/sync-github.yml
+            echo "      dest: $item" >> .github/sync-github.yml
           done
-          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
-          echo '    repos: |' >> .github/sync.yml
-          echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
+          echo '    repos: |' >> .github/sync-github.yml
+          echo "      ${owner}/${syncD}@${branch}" >> .github/sync-github.yml
 
       - name: 🛰️ Gumak
         run: |
@@ -83,15 +84,14 @@ jobs:
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo '' >> .github/sync.yml
-          echo '  - files:' >> .github/sync.yml
+          echo 'group:' > .github/sync-gumak.yml
+          echo '  - files:' >> .github/sync-gumak.yml
           for item in $SYNC; do
-            echo "    - source: ${sync}/${item}" >> .github/sync.yml
-            echo "      dest: $item" >> .github/sync.yml
+            echo "    - source: ${sync}/${item}" >> .github/sync-gumak.yml
+            echo "      dest: $item" >> .github/sync-gumak.yml
           done
-          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
-          echo '    repos: |' >> .github/sync.yml
-          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+          echo '    repos: |' >> .github/sync-gumak.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync-gumak.yml
 
       - name: 🛰️ Quickemu
         run: |
@@ -100,15 +100,14 @@ jobs:
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo '' >> .github/sync.yml
-          echo '  - files:' >> .github/sync.yml
+          echo 'group:' > .github/sync-quickemu.yml
+          echo '  - files:' >> .github/sync-quickemu.yml
           for item in $SYNC; do
-            echo "    - source: ${sync}/${item}" >> .github/sync.yml
-            echo "      dest: $item" >> .github/sync.yml
+            echo "    - source: ${sync}/${item}" >> .github/sync-quickemu.yml
+            echo "      dest: $item" >> .github/sync-quickemu.yml
           done
-          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
-          echo '    repos: |' >> .github/sync.yml
-          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+          echo '    repos: |' >> .github/sync-quickemu.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync-quickemu.yml
 
       - name: 🛰️ vbm
         run: |
@@ -117,15 +116,14 @@ jobs:
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo '' >> .github/sync.yml
-          echo '  - files:' >> .github/sync.yml
+          echo 'group:' > .github/sync-vbm.yml
+          echo '  - files:' >> .github/sync-vbm.yml
           for item in $SYNC; do
-            echo "    - source: ${sync}/${item}" >> .github/sync.yml
-            echo "      dest: $item" >> .github/sync.yml
+            echo "    - source: ${sync}/${item}" >> .github/sync-vbm.yml
+            echo "      dest: $item" >> .github/sync-vbm.yml
           done
-          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
-          echo '    repos: |' >> .github/sync.yml
-          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+          echo '    repos: |' >> .github/sync-vbm.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync-vbm.yml
 
       - name: 🛰️ Void Helper (post-installation script)
         run: |
@@ -134,15 +132,14 @@ jobs:
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo '' >> .github/sync.yml
-          echo '  - files:' >> .github/sync.yml
+          echo 'group:' > .github/sync-void-helper.yml
+          echo '  - files:' >> .github/sync-void-helper.yml
           for item in $SYNC; do
-            echo "    - source: ${sync}/${item}" >> .github/sync.yml
-            echo "      dest: $item" >> .github/sync.yml
+            echo "    - source: ${sync}/${item}" >> .github/sync-void-helper.yml
+            echo "      dest: $item" >> .github/sync-void-helper.yml
           done
-          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
-          echo '    repos: |' >> .github/sync.yml
-          echo "      ${owner}/${sync}@${branch}" >> .github/sync.yml
+          echo '    repos: |' >> .github/sync-void-helper.yml
+          echo "      ${owner}/${sync}@${branch}" >> .github/sync-void-helper.yml
 
       - name: 🛰️ Void Wallpapers
         run: |
@@ -152,29 +149,58 @@ jobs:
           owner=osowoso
           SYNC=$(ls ${sync}/)
           echo "$SYNC"
-          echo '' >> .github/sync.yml
-          echo '  - files:' >> .github/sync.yml
+          echo 'group:' > .github/sync-void-wallpapers.yml
+          echo '  - files:' >> .github/sync-void-wallpapers.yml
           for item in $SYNC; do
-            echo "    - source: ${sync}/${item}" >> .github/sync.yml
-            echo "      dest: $item" >> .github/sync.yml
+            echo "    - source: ${sync}/${item}" >> .github/sync-void-wallpapers.yml
+            echo "      dest: $item" >> .github/sync-void-wallpapers.yml
           done
-          echo '    - .github/workflows/add-stars.yml' >> .github/sync.yml
-          echo '    repos: |' >> .github/sync.yml
-          echo "      ${owner}/${syncD}@${branch}" >> .github/sync.yml
+          echo '    repos: |' >> .github/sync-void-wallpapers.yml
+          echo "      ${owner}/${syncD}@${branch}" >> .github/sync-void-wallpapers.yml
 
       - name: push
         run: |
           git config --global user.name web-flow
           git config --global user.email "noreply@github.com"
-          git add .github/sync.yml
+          git add .github/sync*.yml
           git commit -m "🛰️ sync" || echo "🛰️ nothing to commit"
           git push || echo "🛰️ nothing to push"
-          cat .github/sync.yml >> $GITHUB_STEP_SUMMARY
+          #cat .github/* >> $GITHUB_STEP_SUMMARY
 
-      - name: 🛰️ Sync
+      - name: matrix
+        id:  generate-matrix
+        run: |
+          PROJECTS=$(ls .github/*.yml)
+          echo '-------------------------------------------------------------'
+          echo 'Synced projects:'
+          echo '-------------------------------------------------------------'
+          echo "${PROJECTS}"
+          echo '-------------------------------------------------------------'
+          MATRIX="{\"include\": ["
+          for file in $PROJECTS; do
+            MATRIX+="{\"file\": \"$file\"},"
+          done
+          MATRIX="${MATRIX%,}]}"
+          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+
+  sync:
+    name: 🛰️ ${{ matrix.file }}
+    needs: prepare
+    #if: success()
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@main
+
+      - name: ${{ matrix.file }}
         uses: BetaHuhn/repo-file-sync-action@v1
         with:
           GH_PAT: ${{ secrets.TOKEN }}
           BRANCH_PREFIX: ''
           SKIP_PR: true
           ORIGINAL_MESSAGE: true
+          TMP_DIR: tmp-${{ matrix.file }}
+          CONFIG_PATH: ${{ matrix.file }}

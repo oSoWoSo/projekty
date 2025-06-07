@@ -24,8 +24,6 @@ group:
       dest: action
     - source: quickemu/actions
       dest: actions
-    - source: quickemu/build-docs
-      dest: build-docs
     - source: quickemu/chunkcheck
       dest: chunkcheck
     - source: quickemu/debian

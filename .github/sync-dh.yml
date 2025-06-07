@@ -14,8 +14,6 @@ group:
       dest: SECURITY.md
     - source: dh/_config.yml
       dest: _config.yml
-    - source: dh/build-docs
-      dest: build-docs
     - source: dh/chunkcheck
       dest: chunkcheck
     - source: dh/debian

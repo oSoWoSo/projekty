@@ -4,7 +4,14 @@ on:
     branches:
       - main
     paths:
-      - ./**/**
+      - dh/**
+      - distro-svg/**
+      - github/**
+      - gumak/**
+      - quickemu/**
+      - vbm/**
+      - void-helper/**
+      - wallpapers/**
   workflow_dispatch:
   #schedule:
     #- cron: '0 */6 * * *'

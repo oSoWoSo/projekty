@@ -202,5 +202,5 @@ jobs:
           BRANCH_PREFIX: ''
           SKIP_PR: true
           ORIGINAL_MESSAGE: true
-          TMP_DIR: tmp-${{ matrix.file }}
+          #TMP_DIR: tmp-${{ matrix.file }}
           CONFIG_PATH: ${{ matrix.file }}

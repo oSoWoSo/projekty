@@ -1,0 +1,14 @@
+group:
+  - files:
+    - source: github/CNAME
+      dest: CNAME
+    - source: github/README.md
+      dest: README.md
+    - source: github/_config.yml
+      dest: _config.yml
+    - source: github/profile
+      dest: profile
+    - source: github/workflow-templates
+      dest: workflow-templates
+    repos: |
+      osowoso/.github@main

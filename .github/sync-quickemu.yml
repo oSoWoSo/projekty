@@ -1,0 +1,60 @@
+group:
+  - files:
+    - source: quickemu/CODE_OF_CONDUCT.md
+      dest: CODE_OF_CONDUCT.md
+    - source: quickemu/CONTRIBUTING.md
+      dest: CONTRIBUTING.md
+    - source: quickemu/ERRORS.md
+      dest: ERRORS.md
+    - source: quickemu/ISOs.list
+      dest: ISOs.list
+    - source: quickemu/LICENSE
+      dest: LICENSE
+    - source: quickemu/README.md
+      dest: README.md
+    - source: quickemu/README.md.bak
+      dest: README.md.bak
+    - source: quickemu/READMEsmall.md
+      dest: READMEsmall.md
+    - source: quickemu/SECURITY.md
+      dest: SECURITY.md
+    - source: quickemu/TODO
+      dest: TODO
+    - source: quickemu/action
+      dest: action
+    - source: quickemu/actions
+      dest: actions
+    - source: quickemu/build-docs
+      dest: build-docs
+    - source: quickemu/chunkcheck
+      dest: chunkcheck
+    - source: quickemu/debian
+      dest: debian
+    - source: quickemu/devshell.nix
+      dest: devshell.nix
+    - source: quickemu/docs
+      dest: docs
+    - source: quickemu/flake.lock
+      dest: flake.lock
+    - source: quickemu/flake.nix
+      dest: flake.nix
+    - source: quickemu/locale
+      dest: locale
+    - source: quickemu/package.nix
+      dest: package.nix
+    - source: quickemu/public
+      dest: public
+    - source: quickemu/qget
+      dest: qget
+    - source: quickemu/quickemu
+      dest: quickemu
+    - source: quickemu/quickget
+      dest: quickget
+    - source: quickemu/quickreport
+      dest: quickreport
+    - source: quickemu/result
+      dest: result
+    - source: quickemu/results
+      dest: results
+    repos: |
+      osowoso/quickemu@master-patched

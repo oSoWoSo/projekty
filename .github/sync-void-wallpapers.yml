@@ -1,0 +1,18 @@
+group:
+  - files:
+    - source: wallpapers/LICENSE
+      dest: LICENSE
+    - source: wallpapers/README.md
+      dest: README.md
+    - source: wallpapers/assets
+      dest: assets
+    - source: wallpapers/dist
+      dest: dist
+    - source: wallpapers/index.html
+      dest: index.html
+    - source: wallpapers/renameAll
+      dest: renameAll
+    - source: wallpapers/src
+      dest: src
+    repos: |
+      osowoso/Void-Wallpapers@main

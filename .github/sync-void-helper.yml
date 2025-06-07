@@ -1,0 +1,12 @@
+group:
+  - files:
+    - source: void-helper/CHANGES.txt
+      dest: CHANGES.txt
+    - source: void-helper/LICENSE
+      dest: LICENSE
+    - source: void-helper/README.md
+      dest: README.md
+    - source: void-helper/void-helper.sh
+      dest: void-helper.sh
+    repos: |
+      osowoso/void-helper@master

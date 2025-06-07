@@ -1,0 +1,50 @@
+group:
+  - files:
+    - source: gumak/CNAME
+      dest: CNAME
+    - source: gumak/CORE
+      dest: CORE
+    - source: gumak/DOCS
+      dest: DOCS
+    - source: gumak/LICENSE
+      dest: LICENSE
+    - source: gumak/README.md
+      dest: README.md
+    - source: gumak/TEMPLATE
+      dest: TEMPLATE
+    - source: gumak/_config.yml
+      dest: _config.yml
+    - source: gumak/gatuin
+      dest: gatuin
+    - source: gumak/gchezmoi
+      dest: gchezmoi
+    - source: gumak/gchmod
+      dest: gchmod
+    - source: gumak/gcolor
+      dest: gcolor
+    - source: gumak/gdrop
+      dest: gdrop
+    - source: gumak/gman
+      dest: gman
+    - source: gumak/gme
+      dest: gme
+    - source: gumak/gmkdir
+      dest: gmkdir
+    - source: gumak/grm
+      dest: grm
+    - source: gumak/gum-base
+      dest: gum-base
+    - source: gumak/gumak
+      dest: gumak
+    - source: gumak/gvpm
+      dest: gvpm
+    - source: gumak/gvpsm
+      dest: gvpsm
+    - source: gumak/gvsv
+      dest: gvsv
+    - source: gumak/gx
+      dest: gx
+    - source: gumak/mg
+      dest: mg
+    repos: |
+      osowoso/gumak@main

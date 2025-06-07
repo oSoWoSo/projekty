@@ -1,0 +1,50 @@
+group:
+  - files:
+    - source: dh/CNAME
+      dest: CNAME
+    - source: dh/CODE_OF_CONDUCT.md
+      dest: CODE_OF_CONDUCT.md
+    - source: dh/CONTRIBUTING.md
+      dest: CONTRIBUTING.md
+    - source: dh/LICENSE
+      dest: LICENSE
+    - source: dh/README.md
+      dest: README.md
+    - source: dh/SECURITY.md
+      dest: SECURITY.md
+    - source: dh/_config.yml
+      dest: _config.yml
+    - source: dh/build-docs
+      dest: build-docs
+    - source: dh/chunkcheck
+      dest: chunkcheck
+    - source: dh/debian
+      dest: debian
+    - source: dh/devshell.nix
+      dest: devshell.nix
+    - source: dh/dh
+      dest: dh
+    - source: dh/docs
+      dest: docs
+    - source: dh/flake.lock
+      dest: flake.lock
+    - source: dh/flake.nix
+      dest: flake.nix
+    - source: dh/package.nix
+      dest: package.nix
+    - source: dh/q
+      dest: q
+    - source: dh/qrun
+      dest: qrun
+    - source: dh/quickemu
+      dest: quickemu
+    - source: dh/quickfzf
+      dest: quickfzf
+    - source: dh/quickget
+      dest: quickget
+    - source: dh/quickreport
+      dest: quickreport
+    - source: dh/quicktui
+      dest: quicktui
+    repos: |
+      osowoso/DistroHopper@all

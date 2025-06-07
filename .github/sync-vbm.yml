@@ -1,0 +1,20 @@
+group:
+  - files:
+    - source: vbm/LICENSE
+      dest: LICENSE
+    - source: vbm/Makefile
+      dest: Makefile
+    - source: vbm/README.md
+      dest: README.md
+    - source: vbm/bash-completion
+      dest: bash-completion
+    - source: vbm/fish-functions
+      dest: fish-functions
+    - source: vbm/foo.png
+      dest: foo.png
+    - source: vbm/screenshots
+      dest: screenshots
+    - source: vbm/vbm.sh
+      dest: vbm.sh
+    repos: |
+      osowoso/vbm@vbm

@@ -71,11 +71,26 @@ jobs:
             echo '' >> README.md
           done
 
+      - name: Add ⭐⭐⭐ badges
+        run: |
+          git pull
+          while IFS= read -r line; do
+            if [[ $line == "* ["* ]] && [[ $line == *") "* ]]; then
+              REPO=$(echo "${line}" | grep -oP '\[\K[^]]+')
+              LINE=$(echo "${line}" | cut -d' ' -f2-)
+              # Possible style values: [flat, flat-square, plastic, for-the-badge, social]
+              echo "* ![Stars](https://img.shields.io/github/stars/${REPO}?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) ${LINE}" >> new.md
+            else
+              echo "${line}" >> new.md
+            fi
+          done < README.md
+          mv new.md README.md
+
       - name: Commit and push changes
         #if: always()
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add -A || echo 'Nothing to add'
-          git commit -m "Update repository list" || echo 'Nothing to commit'
+          git commit -m "Update README" || echo 'Nothing to commit'
           git push origin main || echo 'Nothing to push'

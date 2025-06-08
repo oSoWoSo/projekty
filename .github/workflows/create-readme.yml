@@ -55,6 +55,8 @@ jobs:
           echo ' * [vur](https://github.com/oSoWoSo/VUR)' >> README.md
           echo ' * [wallpapers](https://github.com/oSoWoSo/Void-wallpapers)' >> README.md
           echo '' >> README.md
+          echo '![Alt](https://repobeats.axiom.co/api/embed/688e53993f75a6121c9c3469c6584603208ec0ee.svg "Repobeats analytics image")' >> README.md
+          echo '' >> README.md
           echo "# My Repositories" >> README.md
           echo "" >> README.md
           cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> README.md

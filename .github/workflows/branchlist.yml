@@ -28,6 +28,7 @@ jobs:
           git config --global user.name "web-flow"
           git config --global user.email "noreply@github.com"
           git status
-          git add --all || echo "Nothing to add"
+          git add .github/branchList || echo "Nothing to add"
           git commit -m "Update branchList" || echo "Nothing to commit"
-          git push || echo "Nothing to push"
+          git push HEAD:main || echo "Nothing to push"
+          git push HEAD:dev || echo "Nothing to push"

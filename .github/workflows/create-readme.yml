@@ -53,7 +53,7 @@ jobs:
           echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/vbm?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [vbm](https://github.com/oSoWoSo/vbm)' >> README.md
           echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/void-helper?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [void-helper](https://github.com/oSoWoSo/void-helper)' >> README.md
           echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/VUR?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [vur](https://github.com/oSoWoSo/VUR)' >> README.md
-          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/oSoWoSo/Void-wallpapers?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [wallpapers](https://github.com/oSoWoSo/Void-wallpapers)' >> README.md
+          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/Void-wallpapers?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [wallpapers](https://github.com/oSoWoSo/Void-wallpapers)' >> README.md
           echo '' >> README.md
           echo '![Alt](https://repobeats.axiom.co/api/embed/688e53993f75a6121c9c3469c6584603208ec0ee.svg "Repobeats analytics image")' >> README.md
           echo '' >> README.md

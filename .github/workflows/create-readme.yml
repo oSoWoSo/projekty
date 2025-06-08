@@ -1,11 +1,11 @@
-name: Generate Repo List
+name: Create README.md
 
 on:
   schedule:
     - cron: 0 0 * * *
   workflow_dispatch:
   push:
-    paths: .github/workflows/repo-list.yml
+    paths: .github/workflows/create-readme.yml
 
 jobs:
   generate-repo-list:
@@ -23,7 +23,7 @@ jobs:
           -H 'Content-Type: application/json' \
           > user_repos.json
           echo '----------------------------------'
-          cat user_repos.json
+          #cat user_repos.json
           echo '----------------------------------'
 
       - name: Get org repos
@@ -41,15 +41,26 @@ jobs:
           #cat org_repos.json
           echo '----------------------------------'
 
-      - name: Generate Markdown file
-        if: always()
+      - name: Generate README.md
+        #if: always()
         run: |
-          echo "# My Repositories" > README.md
+          echo '# Included in this repository' > README.md
+          echo ' * [dh](https://github.com/oSoWoSo/DistroHopper)' >> README.md
+          echo ' * [distro-svg](https://github.com/oSoWoSo/distro-svg)' >> README.md
+          echo ' * [github](https://github.com/oSoWoSo/.github)' >> README.md
+          echo ' * [gumak](https://github.com/oSoWoSo/gumak)' >> README.md
+          echo ' * [quickemu](https://github.com/oSoWoSo/quickemu)' >> README.md
+          echo ' * [vbm](https://github.com/oSoWoSo/vbm)' >> README.md
+          echo ' * [void-helper](https://github.com/oSoWoSo/void-helper)' >> README.md
+          echo ' * [vur](https://github.com/oSoWoSo/VUR)' >> README.md
+          echo ' * [wallpapers](https://github.com/oSoWoSo/Void-wallpapers)' >> README.md
+          echo '' >> README.md
+          echo "# My Repositories" >> README.md
           echo "" >> README.md
           cat user_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> README.md
-          echo "" >> README.md
+          echo '' >> README.md
           echo "# Organization Repositories" >> README.md
-          echo "" >> README.md
+          echo '' >> README.md
           ORGANIZATIONS="AM-community OpenSourceWorldOrder oSoWoSo vb-linux voidbox-linux YourOperatingSystem"
           for org in $ORGANIZATIONS; do
             echo "## ${org}" >> README.md
@@ -59,7 +70,7 @@ jobs:
           done
 
       - name: Commit and push changes
-        if: always()
+        #if: always()
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"

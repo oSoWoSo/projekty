@@ -10,5 +10,7 @@ group:
       dest: profile
     - source: github/workflow-templates
       dest: workflow-templates
+    - source: github/README.md
+      dest: profile/README.md
     repos: |
       osowoso/.github@main

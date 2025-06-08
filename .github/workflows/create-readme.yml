@@ -45,15 +45,15 @@ jobs:
         #if: always()
         run: |
           echo '# Included in this repository' > README.md
-          echo ' * ![Stars](https://img.shields.io/github/stars/DistroHopper?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [dh](https://github.com/oSoWoSo/DistroHopper)' >> README.md
-          echo ' * ![Stars](https://img.shields.io/github/stars/distro-svg?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [distro-svg](https://github.com/oSoWoSo/distro-svg)' >> README.md
-          echo ' * ![Stars](https://img.shields.io/github/stars/.github?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [github](https://github.com/oSoWoSo/.github)' >> README.md
-          echo ' * ![Stars](https://img.shields.io/github/stars/gumak?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [gumak](https://github.com/oSoWoSo/gumak)' >> README.md
-          echo ' * ![Stars](https://img.shields.io/github/stars/quickemu?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [quickemu](https://github.com/oSoWoSo/quickemu)' >> README.md
-          echo ' * ![Stars](https://img.shields.io/github/stars/vbm?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [vbm](https://github.com/oSoWoSo/vbm)' >> README.md
-          echo ' * ![Stars](https://img.shields.io/github/stars/void-helper?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [void-helper](https://github.com/oSoWoSo/void-helper)' >> README.md
-          echo ' * ![Stars](https://img.shields.io/github/stars/VUR?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [vur](https://github.com/oSoWoSo/VUR)' >> README.md
-          echo ' * ![Stars](https://img.shields.io/github/stars/Void-wallpapers?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [wallpapers](https://github.com/oSoWoSo/Void-wallpapers)' >> README.md
+          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/DistroHopper?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [dh](https://github.com/oSoWoSo/DistroHopper)' >> README.md
+          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/distro-svg?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [distro-svg](https://github.com/oSoWoSo/distro-svg)' >> README.md
+          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/.github?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [github](https://github.com/oSoWoSo/.github)' >> README.md
+          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/gumak?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [gumak](https://github.com/oSoWoSo/gumak)' >> README.md
+          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/quickemu?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [quickemu](https://github.com/oSoWoSo/quickemu)' >> README.md
+          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/vbm?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [vbm](https://github.com/oSoWoSo/vbm)' >> README.md
+          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/void-helper?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [void-helper](https://github.com/oSoWoSo/void-helper)' >> README.md
+          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/VUR?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [vur](https://github.com/oSoWoSo/VUR)' >> README.md
+          echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/oSoWoSo/Void-wallpapers?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [wallpapers](https://github.com/oSoWoSo/Void-wallpapers)' >> README.md
           echo '' >> README.md
           echo '![Alt](https://repobeats.axiom.co/api/embed/688e53993f75a6121c9c3469c6584603208ec0ee.svg "Repobeats analytics image")' >> README.md
           echo '' >> README.md

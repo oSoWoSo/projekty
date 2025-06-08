@@ -11,18 +11,14 @@ anyone can contribute their peace of puzzle
 ---
 final goal
 # open Source World Society
-
-Anyone willing participate will be invited...
-
-Only requirements is contributing to open source
-
-anyone can contribute their peace of puzzle
-
 ---
 
 Let's create our world open source
 Because sharing is carring
 And we care about our society
+
+### This site will try to connect people, projects, organizations and ideas together
+Our little open source crossroad site
 
 ---
 
@@ -65,8 +61,7 @@ basic rules can be like:
 11. No rules cannot violate individual rights.
 
 
-This project is (correct me if I'm wrong) the first attempt to create real open source rules that can be used to care for our countries and our world.
-
+This project is (correct me if I'm wrong) one of the first attempt to create real open source rules that can be used to care for our countries and our world.
 
 
 Can we stop talking about changes and start implementing it?
@@ -75,10 +70,13 @@ Can we stop talking about changes and start implementing it?
 
 ---
 
-Share join link with anyone interested!
+Share links with anyone interested!
 
 Link to join the oSoWoSo group on SimpleX chat:
 [SimpleX chat](https://simplex.chat/contact#/?v=2-5&smp=smp%3A%2F%2Fu2dS9sG8nMNURyZwqASV4yROM28Er0luVTx5X1CsMrU%3D%40smp4.simplex.im%2FzlrmKvCD4YaM6TBs5WPEUFov1sn5vljm%23%2F%3Fv%3D1-2%26dh%3DMCowBQYDK2VuAyEAEH9aGr1yWEk8yVMwnNV1S5fWH6WEwrQroQ122baoXUQ%253D%26srv%3Do5vmywmrnaxalvz6wi3zicyftgio6psuvyniis6gco6bp6ekl4cqj4id.onion&data=%7B%22type%22%3A%22group%22%2C%22groupLinkId%22%3A%22dC-zufvOGLs-i3cbV5F93A%3D%3D%22%7D)
+
+# Open Source Ecology
+[OSE](https://www.opensourceecology.org/)
 
 ---
 open Source World Society

@@ -28,17 +28,17 @@ jobs:
 
       - name: Get org repos
         run: |
-          ORGANIZATIONS="AM-manager OpenSourceWorldOrder oSoWoSo vb-linux voidbox-linux YourOperatingSystem"
+          ORGANIZATIONS="AM-community OpenSourceWorldOrder oSoWoSo vb-linux voidbox-linux YourOperatingSystem"
           rm -f org_repos.json
           for org in $ORGANIZATIONS; do
             curl -X GET \
             "https://api.github.com/orgs/${org}/repos" \
             -H "Authorization: token ${{ secrets.TOKEN }}" \
             -H 'Content-Type: application/json' \
-            >> org_repos.json
+            > ${org}_repos.json
           done
           echo '----------------------------------'
-          cat org_repos.json
+          #cat org_repos.json
           echo '----------------------------------'
 
       - name: Generate Markdown file
@@ -50,7 +50,13 @@ jobs:
           echo "" >> README.md
           echo "# Organization Repositories" >> README.md
           echo "" >> README.md
-          cat org_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> README.md
+          ORGANIZATIONS="AM-community OpenSourceWorldOrder oSoWoSo vb-linux voidbox-linux YourOperatingSystem"
+          for org in $ORGANIZATIONS; do
+            echo "## ${org}" >> README.md
+            echo '' >> README.md
+            cat ${org}_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> README.md
+            echo '' >> README.md
+          done
 
       - name: Commit and push changes
         if: always()

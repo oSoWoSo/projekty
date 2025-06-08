@@ -81,6 +81,8 @@ jobs:
             echo "    - source: ${sync}/${item}" >> .github/sync-github.yml
             echo "      dest: $item" >> .github/sync-github.yml
           done
+          echo "    - source: ${sync}/README.md" >> .github/sync-github.yml
+          echo "      dest: profile/README.md" >> .github/sync-github.yml
           echo '    repos: |' >> .github/sync-github.yml
           echo "      ${owner}/${syncD}@${branch}" >> .github/sync-github.yml
 

@@ -70,6 +70,7 @@ jobs:
             cat ${org}_repos.json | jq -r '.[] | " * [\(.name)](\(.html_url))"' >> README.md
             echo '' >> README.md
           done
+          rm -f *.json
 
       - name: Commit and push changes
         #if: always()

@@ -6,14 +6,22 @@ group:
       dest: CODE_OF_CONDUCT.md
     - source: dh/CONTRIBUTING.md
       dest: CONTRIBUTING.md
+    - source: dh/ISOs.list
+      dest: ISOs.list
     - source: dh/LICENSE
       dest: LICENSE
     - source: dh/README.md
       dest: README.md
     - source: dh/SECURITY.md
       dest: SECURITY.md
+    - source: dh/TODO
+      dest: TODO
     - source: dh/_config.yml
       dest: _config.yml
+    - source: dh/action
+      dest: action
+    - source: dh/actions
+      dest: actions
     - source: dh/chunkcheck
       dest: chunkcheck
     - source: dh/debian
@@ -28,10 +36,16 @@ group:
       dest: flake.lock
     - source: dh/flake.nix
       dest: flake.nix
+    - source: dh/locale
+      dest: locale
     - source: dh/package.nix
       dest: package.nix
+    - source: dh/public
+      dest: public
     - source: dh/q
       dest: q
+    - source: dh/qget
+      dest: qget
     - source: dh/qrun
       dest: qrun
     - source: dh/quickemu
@@ -44,5 +58,7 @@ group:
       dest: quickreport
     - source: dh/quicktui
       dest: quicktui
+    - source: dh/results
+      dest: results
     repos: |
       osowoso/DistroHopper@all

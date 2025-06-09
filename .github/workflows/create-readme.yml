@@ -44,7 +44,14 @@ jobs:
       - name: Generate README.md
         #if: always()
         run: |
-          echo '# Included in this repository' > README.md
+          echo 'Don't buy a pig in a poke' > README.md
+          echo 'Don't use proprietary Operating System or software' >> README.md
+          echo 'Use Open Source' >> README.md
+          echo 'Like Linux' >> README.md
+          echo 'Most used open source OS on planet Earth' >> README.md
+          echo 'Join us...' >> README.md
+          echo '' >> README.md
+          echo '# Included in this repository' >> README.md
           echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/DistroHopper?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [dh](https://github.com/oSoWoSo/DistroHopper)' >> README.md
           echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/distro-svg?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [distro-svg](https://github.com/oSoWoSo/distro-svg)' >> README.md
           echo ' * ![Stars](https://img.shields.io/github/stars/oSoWoSo/.github?label=%E2%AD%90&style=plastic&logoSize=auto&labelColor=white&color=green) [github](https://github.com/oSoWoSo/.github)' >> README.md

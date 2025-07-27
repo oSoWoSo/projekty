@@ -44,8 +44,8 @@ jobs:
       - name: Generate README.md
         #if: always()
         run: |
-          echo 'Don't buy a pig in a poke' > README.md
-          echo 'Don't use proprietary Operating System or software' >> README.md
+          echo "Don't buy a pig in a poke" > README.md
+          echo "Don't use proprietary Operating System or software" >> README.md
           echo 'Use Open Source' >> README.md
           echo 'Like Linux' >> README.md
           echo 'Most used open source OS on planet Earth' >> README.md

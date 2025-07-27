@@ -45,10 +45,15 @@ jobs:
         #if: always()
         run: |
           echo "Don't buy a pig in a poke" > README.md
+          echo '' >> README.md
           echo "Don't use proprietary Operating System or software" >> README.md
+          echo '' >> README.md
           echo 'Use Open Source' >> README.md
+          echo '' >> README.md
           echo 'Like Linux' >> README.md
+          echo '' >> README.md
           echo 'Most used open source OS on planet Earth' >> README.md
+          echo '' >> README.md
           echo 'Join us...' >> README.md
           echo '' >> README.md
           echo '# Included in this repository' >> README.md

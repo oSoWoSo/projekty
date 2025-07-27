@@ -1,8 +1,13 @@
 Don't buy a pig in a poke
+
 Don't use proprietary Operating System or software
+
 Use Open Source
+
 Like Linux
+
 Most used open source OS on planet Earth
+
 Join us...
 
 # Included in this repository
